@@ -6,7 +6,7 @@
     { "Resume": "resume.html" },
     { "Contact": "contact.html" }
   ],
-  "baseURL": "https://kaustubh.dev",
+  "baseURL": "https://c-kaustubh.netlify.app",
   "siteTitle": "C Kaustubh",
   "siteScripts": null,
   "author": "C Kaustubh",

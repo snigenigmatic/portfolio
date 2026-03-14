@@ -3,51 +3,51 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
    <title>C Kaustubh</title>
-   <link>https://kaustubh.dev/</link>
+   <link>https://c-kaustubh.netlify.app/</link>
    <description>Recent content on C Kaustubh</description>
    <language>en-IN</language>
    <webMaster>C Kaustubh</webMaster>
    <copyright>© 2026 C Kaustubh</copyright>
-   <lastBuildDate>Sat, 14 Mar 2026 08:18:12 +0000</lastBuildDate>
-   <atom:link href="https://kaustubh.dev/feed.xml" rel="self" type="application/rss+xml" />
+   <lastBuildDate>Sat, 14 Mar 2026 08:33:37 +0000</lastBuildDate>
+   <atom:link href="https://c-kaustubh.netlify.app/feed.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>C Kaustubh</title>
-      <link>https://kaustubh.dev/index.html</link>
+      <link>https://c-kaustubh.netlify.app/index.html</link>
       <pubDate>Sat, 14 Mar 2026 00:00:00 +0000</pubDate>
       <author>C Kaustubh</author>
-      <guid>https://kaustubh.dev/index.html</guid>
+      <guid>https://c-kaustubh.netlify.app/index.html</guid>
       <description>&lt;h1 id=&#34;c-kaustubh&#34;&gt;C Kaustubh&lt;/h1&gt;&#xA;&lt;p&gt;Third-year Computer Science undergraduate at PES University, Bengaluru.&lt;/p&gt;&#xA;&lt;p&gt;I build things at the intersection of systems and intelligence — distributed infrastructure in Rust and Go, ML pipelines in PyTorch, and multi-modal architectures that hold up against frontier models. I care about correctness, performance, and being honest about tradeoffs.&lt;/p&gt;&#xA;&lt;p&gt;Currently a Teaching Assistant for Microprocessors and Computer Architecture, and Tech Lead at Shunya PESU. Research intern at C-ISFCR in summer 2025.&#xA;Upcoming AI R&amp;amp;D intern at Aveva in summer 2026.&lt;/p&gt;&#xA;&lt;hr&gt;&#xA;&lt;p&gt;&lt;a href=&#34;/about.html&#34;&gt;About&lt;/a&gt; · &lt;a href=&#34;/projects.html&#34;&gt;Projects&lt;/a&gt; · &lt;a href=&#34;/resume.html&#34;&gt;Resume&lt;/a&gt; · &lt;a href=&#34;/contact.html&#34;&gt;Contact&lt;/a&gt;&lt;/p&gt;&#xA;</description>
     </item>
     <item>
       <title>Projects</title>
-      <link>https://kaustubh.dev/projects.html</link>
+      <link>https://c-kaustubh.netlify.app/projects.html</link>
       <pubDate>Sat, 14 Mar 2026 00:00:00 +0000</pubDate>
       <author>C Kaustubh</author>
-      <guid>https://kaustubh.dev/projects.html</guid>
+      <guid>https://c-kaustubh.netlify.app/projects.html</guid>
       <description>&lt;h1 id=&#34;projects&#34;&gt;Projects&lt;/h1&gt;&#xA;&lt;p&gt;A selection of things I have built. Full source at &lt;a href=&#34;https://github.com/snigenigmatic&#34;&gt;github.com/snigenigmatic&lt;/a&gt;.&lt;/p&gt;&#xA;&lt;hr&gt;&#xA;&lt;h2 id=&#34;cluster-simulator&#34;&gt;cluster-simulator&lt;/h2&gt;&#xA;&lt;p&gt;&lt;code&gt;rust&lt;/code&gt; &lt;code&gt;distributed-systems&lt;/code&gt;&lt;/p&gt;&#xA;&lt;p&gt;Memory-safe distributed system simulator in Rust implementing core Kubernetes cluster management: node registration, pod scheduling, health monitoring, and leader-follower control plane logic. CI via GitHub Actions.&lt;/p&gt;&#xA;&lt;hr&gt;&#xA;&lt;h2 id=&#34;medichain-fl&#34;&gt;MediChain-FL&lt;/h2&gt;&#xA;&lt;p&gt;&lt;code&gt;python&lt;/code&gt; &lt;code&gt;federated-learning&lt;/code&gt; &lt;code&gt;cryptography&lt;/code&gt;&lt;/p&gt;&#xA;&lt;p&gt;HIPAA-compliant federated learning system for medical imaging using PyTorch and Flower. Integrated CKKS homomorphic encryption (TenSEAL) and an Ethereum smart contract audit trail. Achieved 93% accuracy on pneumonia detection without exposing raw patient data. CI via GitHub Actions.&lt;/p&gt;&#xA;&lt;hr&gt;&#xA;&lt;h2 id=&#34;redis-from-scratch&#34;&gt;redis-from-scratch&lt;/h2&gt;&#xA;&lt;p&gt;&lt;code&gt;go&lt;/code&gt; &lt;code&gt;systems&lt;/code&gt;&lt;/p&gt;&#xA;&lt;p&gt;Redis-compatible in-memory key-value store in Go with full RESP3 protocol support and Pub-Sub. Deployed as the backing store for a REST API-based Kafka clone. CI via GitHub Actions.&lt;/p&gt;&#xA;&lt;hr&gt;&#xA;&lt;h2 id=&#34;yak&#34;&gt;YAK&lt;/h2&gt;&#xA;&lt;p&gt;&lt;code&gt;python&lt;/code&gt; &lt;code&gt;distributed-systems&lt;/code&gt;&lt;/p&gt;&#xA;&lt;p&gt;Kafka-clone in Python implementing Pub-Sub, log replication, leader-follower architecture, and offset-based message delivery. CI via GitHub Actions.&lt;/p&gt;&#xA;&lt;hr&gt;&#xA;&lt;h2 id=&#34;orderbook&#34;&gt;orderbook&lt;/h2&gt;&#xA;&lt;p&gt;&lt;code&gt;c++&lt;/code&gt; &lt;code&gt;high-performance&lt;/code&gt;&lt;/p&gt;&#xA;&lt;p&gt;High-performance financial order book in C++20. Benchmarked &lt;code&gt;std::map&lt;/code&gt; vs &lt;code&gt;std::vector&lt;/code&gt; matching engines achieving nanosecond-level latencies across x64 and ARM using custom timing utilities.&lt;/p&gt;&#xA;&lt;hr&gt;&#xA;&lt;h2 id=&#34;coderonin&#34;&gt;CodeRonin&lt;/h2&gt;&#xA;&lt;p&gt;&lt;code&gt;python&lt;/code&gt; &lt;code&gt;ai-agents&lt;/code&gt;&lt;/p&gt;&#xA;&lt;p&gt;AI-powered Python debugging game where an agent injects realistic bugs to build library fluency and debugging skill. &lt;em&gt;Agentathon &#39;26 Winner.&lt;/em&gt;&lt;/p&gt;&#xA;&lt;hr&gt;&#xA;&lt;h2 id=&#34;insightinvest&#34;&gt;InsightInvest&lt;/h2&gt;&#xA;&lt;p&gt;&lt;code&gt;python&lt;/code&gt; &lt;code&gt;ai-agents&lt;/code&gt;&lt;/p&gt;&#xA;&lt;p&gt;Agentic investment research chatbot performing multi-source analysis on publicly traded companies to generate structured investment outlook reports.&lt;/p&gt;&#xA;</description>
     </item>
     <item>
       <title>Resume</title>
-      <link>https://kaustubh.dev/resume.html</link>
+      <link>https://c-kaustubh.netlify.app/resume.html</link>
       <pubDate>Sat, 14 Mar 2026 00:00:00 +0000</pubDate>
       <author>C Kaustubh</author>
-      <guid>https://kaustubh.dev/resume.html</guid>
+      <guid>https://c-kaustubh.netlify.app/resume.html</guid>
       <description>&lt;h1 id=&#34;resume&#34;&gt;Resume&lt;/h1&gt;&#xA;&lt;iframe src=&#34;/static/resume.pdf&#34; width=&#34;100%&#34; height=&#34;900px&#34; style=&#34;border:none;&#34;&gt;&lt;/iframe&gt;</description>
     </item>
     <item>
       <title>About</title>
-      <link>https://kaustubh.dev/about.html</link>
+      <link>https://c-kaustubh.netlify.app/about.html</link>
       <pubDate>Sat, 14 Mar 2026 00:00:00 +0000</pubDate>
       <author>C Kaustubh</author>
-      <guid>https://kaustubh.dev/about.html</guid>
+      <guid>https://c-kaustubh.netlify.app/about.html</guid>
       <description>&lt;h1 id=&#34;about&#34;&gt;About&lt;/h1&gt;&#xA;&lt;p&gt;I am a third-year Computer Science student at PES University.&lt;/p&gt;&#xA;&lt;p&gt;My work sits at the intersection of systems programming, distributed infrastructure, and machine learning. I am drawn to problems where correctness and performance are both required. I have a particular interest in multi-modal machine learning, and its applications to video understanding and anomaly detection.&lt;/p&gt;&#xA;&lt;hr&gt;&#xA;&lt;h2 id=&#34;experience&#34;&gt;Experience&lt;/h2&gt;&#xA;&lt;h3 id=&#34;research-intern--c-isfcr-pes-university&#34;&gt;Research Intern — C-ISFCR, PES University&lt;/h3&gt;&#xA;&lt;p&gt;&lt;em&gt;Jun 2025 – Jul 2025, under Prof. Preet Kanwal&lt;/em&gt;&lt;/p&gt;&#xA;&lt;p&gt;Designed and evaluated four multi-modal architectures (YOLOv11 + Optical Flow + LLaVA-Next + LLaMA-3) for unsupervised video anomaly detection, achieving 75.48% classification accuracy on the NWPU Campus Dataset across 16.5 hours of footage.&lt;/p&gt;&#xA;&lt;p&gt;Built a novel keyword-free composite anomaly scoring framework combining semantic (SBERT), visual (ResNet-50), object distribution (Jensen-Shannon divergence), and temporal dynamics signals. F1 scores of 0.845–0.895 across all test categories. Benchmarked against Gemini-2.5-Flash — comparable anomaly scores at significantly lower serving cost.&lt;/p&gt;&#xA;&lt;h3 id=&#34;teaching-assistant--cse-pes-university&#34;&gt;Teaching Assistant — CSE, PES University&lt;/h3&gt;&#xA;&lt;p&gt;&lt;em&gt;Jan 2026 – Present&lt;/em&gt;&lt;/p&gt;&#xA;&lt;p&gt;TA for Microprocessors and Computer Architecture (UE24CS351B) under Prof. Chitra GM. Prepared course material and the evaluation schema for the course project, serving 700+ students.&lt;/p&gt;&#xA;&lt;hr&gt;&#xA;&lt;h2 id=&#34;skills&#34;&gt;Skills&lt;/h2&gt;&#xA;&lt;p&gt;&lt;strong&gt;Languages &amp;amp; Frameworks&lt;/strong&gt; — Rust, C/C++, Go, Python, TypeScript, Next.js, PyTorch, Bash&lt;/p&gt;&#xA;&lt;p&gt;&lt;strong&gt;Infrastructure &amp;amp; DevOps&lt;/strong&gt; — Docker, Kubernetes, GitHub Actions (CI/CD), Linux, Git, Redis, Kafka, Spark&lt;/p&gt;&#xA;&lt;p&gt;&lt;strong&gt;ML &amp;amp; Data&lt;/strong&gt; — PyTorch, CUDA, OpenCV, Sentence-BERT, YOLOv11, LLaVA, LLaMA, Flower (Federated Learning)&lt;/p&gt;&#xA;</description>
     </item>
     <item>
       <title>Contact</title>
-      <link>https://kaustubh.dev/contact.html</link>
+      <link>https://c-kaustubh.netlify.app/contact.html</link>
       <pubDate>Sat, 14 Mar 2026 00:00:00 +0000</pubDate>
       <author>C Kaustubh</author>
-      <guid>https://kaustubh.dev/contact.html</guid>
+      <guid>https://c-kaustubh.netlify.app/contact.html</guid>
       <description>&lt;h1 id=&#34;contact&#34;&gt;Contact&lt;/h1&gt;&#xA;&lt;p&gt;Email is the best way to reach me. I&#39;m generally responsive within a day.&lt;/p&gt;&#xA;&lt;p&gt;&lt;strong&gt;Email&lt;/strong&gt; — &lt;a href=&#34;mailto:kaustubhc.1105@gmail.com&#34;&gt;kaustubhc.1105@gmail.com&lt;/a&gt;&lt;/p&gt;&#xA;&lt;p&gt;&lt;strong&gt;GitHub&lt;/strong&gt; — &lt;a href=&#34;https://github.com/snigenigmatic&#34;&gt;github.com/snigenigmatic&lt;/a&gt;&lt;/p&gt;&#xA;&lt;p&gt;&lt;strong&gt;LinkedIn&lt;/strong&gt; — &lt;a href=&#34;https://linkedin.com/in/c-kaustubh&#34;&gt;linkedin.com/in/c-kaustubh&lt;/a&gt;&lt;/p&gt;&#xA;&lt;hr&gt;&#xA;&lt;p&gt;I am actively looking for internship opportunities in Bengaluru and remote, primarily in ML, MLOps, systems, and backend engineering for Fall 2026. If something sounds relevant, please reach out.&lt;/p&gt;&#xA;</description>
     </item>
   </channel>
