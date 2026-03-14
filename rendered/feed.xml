@@ -8,16 +8,8 @@
    <language>en-IN</language>
    <webMaster>C Kaustubh</webMaster>
    <copyright>© 2026 C Kaustubh</copyright>
-   <lastBuildDate>Sat, 14 Mar 2026 08:33:37 +0000</lastBuildDate>
+   <lastBuildDate>Sat, 14 Mar 2026 08:41:45 +0000</lastBuildDate>
    <atom:link href="https://c-kaustubh.netlify.app/feed.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>C Kaustubh</title>
-      <link>https://c-kaustubh.netlify.app/index.html</link>
-      <pubDate>Sat, 14 Mar 2026 00:00:00 +0000</pubDate>
-      <author>C Kaustubh</author>
-      <guid>https://c-kaustubh.netlify.app/index.html</guid>
-      <description>&lt;h1 id=&#34;c-kaustubh&#34;&gt;C Kaustubh&lt;/h1&gt;&#xA;&lt;p&gt;Third-year Computer Science undergraduate at PES University, Bengaluru.&lt;/p&gt;&#xA;&lt;p&gt;I build things at the intersection of systems and intelligence — distributed infrastructure in Rust and Go, ML pipelines in PyTorch, and multi-modal architectures that hold up against frontier models. I care about correctness, performance, and being honest about tradeoffs.&lt;/p&gt;&#xA;&lt;p&gt;Currently a Teaching Assistant for Microprocessors and Computer Architecture, and Tech Lead at Shunya PESU. Research intern at C-ISFCR in summer 2025.&#xA;Upcoming AI R&amp;amp;D intern at Aveva in summer 2026.&lt;/p&gt;&#xA;&lt;hr&gt;&#xA;&lt;p&gt;&lt;a href=&#34;/about.html&#34;&gt;About&lt;/a&gt; · &lt;a href=&#34;/projects.html&#34;&gt;Projects&lt;/a&gt; · &lt;a href=&#34;/resume.html&#34;&gt;Resume&lt;/a&gt; · &lt;a href=&#34;/contact.html&#34;&gt;Contact&lt;/a&gt;&lt;/p&gt;&#xA;</description>
-    </item>
     <item>
       <title>Projects</title>
       <link>https://c-kaustubh.netlify.app/projects.html</link>
@@ -49,6 +41,14 @@
       <author>C Kaustubh</author>
       <guid>https://c-kaustubh.netlify.app/contact.html</guid>
       <description>&lt;h1 id=&#34;contact&#34;&gt;Contact&lt;/h1&gt;&#xA;&lt;p&gt;Email is the best way to reach me. I&#39;m generally responsive within a day.&lt;/p&gt;&#xA;&lt;p&gt;&lt;strong&gt;Email&lt;/strong&gt; — &lt;a href=&#34;mailto:kaustubhc.1105@gmail.com&#34;&gt;kaustubhc.1105@gmail.com&lt;/a&gt;&lt;/p&gt;&#xA;&lt;p&gt;&lt;strong&gt;GitHub&lt;/strong&gt; — &lt;a href=&#34;https://github.com/snigenigmatic&#34;&gt;github.com/snigenigmatic&lt;/a&gt;&lt;/p&gt;&#xA;&lt;p&gt;&lt;strong&gt;LinkedIn&lt;/strong&gt; — &lt;a href=&#34;https://linkedin.com/in/c-kaustubh&#34;&gt;linkedin.com/in/c-kaustubh&lt;/a&gt;&lt;/p&gt;&#xA;&lt;hr&gt;&#xA;&lt;p&gt;I am actively looking for internship opportunities in Bengaluru and remote, primarily in ML, MLOps, systems, and backend engineering for Fall 2026. If something sounds relevant, please reach out.&lt;/p&gt;&#xA;</description>
+    </item>
+    <item>
+      <title>C Kaustubh</title>
+      <link>https://c-kaustubh.netlify.app/index.html</link>
+      <pubDate>Sat, 14 Mar 2026 00:00:00 +0000</pubDate>
+      <author>C Kaustubh</author>
+      <guid>https://c-kaustubh.netlify.app/index.html</guid>
+      <description>&lt;h1 id=&#34;c-kaustubh&#34;&gt;C Kaustubh&lt;/h1&gt;&#xA;&lt;p&gt;Third-year Computer Science undergraduate at PES University, Bengaluru.&lt;/p&gt;&#xA;&lt;p&gt;I build things at the intersection of systems and intelligence — distributed infrastructure in Rust and Go, ML pipelines in PyTorch, and multi-modal architectures that hold up against frontier models. I care about correctness, performance, and being honest about tradeoffs.&lt;/p&gt;&#xA;&lt;p&gt;Currently a Teaching Assistant for Microprocessors and Computer Architecture, and Tech Lead at Shunya PESU. Research intern at C-ISFCR in summer 2025.&#xA;Upcoming AI R&amp;amp;D intern at Aveva in summer 2026.&lt;/p&gt;&#xA;&lt;hr&gt;&#xA;&lt;p&gt;&lt;a href=&#34;/about.html&#34;&gt;About&lt;/a&gt; · &lt;a href=&#34;/projects.html&#34;&gt;Projects&lt;/a&gt; · &lt;a href=&#34;/resume.html&#34;&gt;Resume&lt;/a&gt; · &lt;a href=&#34;/contact.html&#34;&gt;Contact&lt;/a&gt;&lt;/p&gt;&#xA;</description>
     </item>
   </channel>
 </rss>

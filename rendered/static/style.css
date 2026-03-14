@@ -311,6 +311,22 @@ body {
   color: var(--accent);
 }
 
+.footer-credit {
+  font-size: 0.72rem;
+  color: var(--muted);
+  letter-spacing: 0.03em;
+}
+
+.footer-credit a {
+  color: var(--muted);
+  text-decoration: none;
+  transition: color 0.18s ease;
+}
+
+.footer-credit a:hover {
+  color: var(--accent);
+}
+
 /* ── Responsive ──────────────────────────────────────── */
 
 @media (max-width: 580px) {
