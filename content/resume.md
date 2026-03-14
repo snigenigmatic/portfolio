@@ -6,4 +6,10 @@ description: "Resume of C Kaustubh — CS undergraduate, systems programmer, ML 
 
 # Resume
 
-<iframe src="/static/resume.pdf" width="100%" height="900px" style="border:none;"></iframe>
+<meta http-equiv="refresh" content="0; url=/static/resume.pdf" />
+
+<p>Redirecting to resume PDF...</p>
+<p><a href="/static/resume.pdf">Open Resume PDF</a></p>
+<script>
+  window.location.replace('/static/resume.pdf');
+</script>

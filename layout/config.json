@@ -3,8 +3,8 @@
     { "Home": "index.html" },
     { "About": "about.html" },
     { "Projects": "projects.html" },
-    { "Resume": "resume.html" },
-    { "Contact": "contact.html" }
+    { "Contact": "contact.html" },
+    { "Resume": "resume.html" }
   ],
   "baseURL": "https://c-kaustubh.netlify.app",
   "siteTitle": "C Kaustubh",

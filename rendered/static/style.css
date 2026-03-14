@@ -204,6 +204,39 @@ body {
   font-style: italic;
 }
 
+.resume-note {
+  color: var(--muted);
+  font-size: 0.95rem;
+}
+
+.resume-preview-link {
+  display: block;
+  margin: 1.25rem 0 1rem;
+  border-bottom: none !important;
+}
+
+.resume-preview {
+  width: 100%;
+  max-width: 620px;
+  border: 1px solid var(--border);
+  background: var(--surface);
+  border-radius: 6px;
+  box-shadow: 0 16px 32px rgba(0, 0, 0, 0.22);
+  transition: transform 0.18s ease, box-shadow 0.18s ease;
+}
+
+.resume-preview:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 22px 38px rgba(0, 0, 0, 0.28);
+}
+
+.resume-download-btn {
+  display: inline-block;
+  border: 1px solid var(--accent);
+  padding: 0.38rem 0.8rem;
+  letter-spacing: 0.03em;
+}
+
 /* ── Home page - hero variant ────────────────────────── */
 
 .page-content.is-home h1 {
