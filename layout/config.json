@@ -1,0 +1,19 @@
+{
+  "navbar": [
+    { "Home": "index.html" },
+    { "About": "about.html" },
+    { "Projects": "projects.html" },
+    { "Resume": "resume.html" },
+    { "Contact": "contact.html" }
+  ],
+  "baseURL": "https://kaustubh.dev",
+  "siteTitle": "C Kaustubh",
+  "siteScripts": null,
+  "author": "C Kaustubh",
+  "themeURL": "/static/style.css",
+  "copyright": "© 2026 C Kaustubh",
+  "CustomFields": [
+    { "Github": "https://github.com/snigenigmatic" },
+    { "LinkedIn": "https://linkedin.com/in/c-kaustubh" }
+  ]
+}

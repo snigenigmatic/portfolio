@@ -1,0 +1,340 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,700;1,400&family=Lora:ital,wght@0,400;0,500;1,400&display=swap');
+
+:root {
+  --bg:      #0c0c0c;
+  --surface: #141414;
+  --text:    #e2d9cc;
+  --muted:   #7a7166;
+  --accent:  #c9a96e;
+  --border:  #252525;
+  --max-w:   700px;
+  --serif:   'Playfair Display', Georgia, serif;
+  --body:    'Lora', Georgia, serif;
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 18px;
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--body);
+  font-size: 1rem;
+  line-height: 1.8;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* ── Header ─────────────────────────────────────────── */
+
+.site-header {
+  width: 100%;
+  max-width: var(--max-w);
+  margin: 0 auto;
+  padding: 2.75rem 1.5rem 1.5rem;
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  border-bottom: 1px solid var(--border);
+}
+
+.site-name {
+  font-family: var(--serif);
+  font-size: 1rem;
+  font-weight: 500;
+  color: var(--text);
+  text-decoration: none;
+  letter-spacing: 0.01em;
+}
+
+.site-name:hover {
+  color: var(--accent);
+}
+
+.site-nav {
+  display: flex;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+
+.nav-link {
+  font-family: var(--body);
+  font-size: 0.78rem;
+  color: var(--muted);
+  text-decoration: none;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  transition: color 0.18s ease;
+}
+
+.nav-link:hover {
+  color: var(--accent);
+}
+
+/* ── Main ────────────────────────────────────────────── */
+
+.main-content {
+  width: 100%;
+  max-width: var(--max-w);
+  margin: 0 auto;
+  padding: 4.5rem 1.5rem 3rem;
+  flex: 1;
+}
+
+/* ── Typography ──────────────────────────────────────── */
+
+.page-content h1 {
+  font-family: var(--serif);
+  font-size: 2.75rem;
+  font-weight: 700;
+  line-height: 1.15;
+  color: var(--text);
+  margin-bottom: 1.75rem;
+  letter-spacing: -0.015em;
+}
+
+.page-content h2 {
+  font-family: var(--serif);
+  font-size: 1.5rem;
+  font-weight: 500;
+  color: var(--text);
+  margin-top: 3rem;
+  margin-bottom: 0.85rem;
+  letter-spacing: -0.01em;
+}
+
+.page-content h3 {
+  font-family: var(--serif);
+  font-size: 1.1rem;
+  font-weight: 500;
+  font-style: italic;
+  color: var(--text);
+  margin-top: 2.25rem;
+  margin-bottom: 0.4rem;
+}
+
+.page-content p {
+  color: var(--text);
+  margin-bottom: 1.25rem;
+}
+
+.page-content p:last-child {
+  margin-bottom: 0;
+}
+
+.page-content a {
+  color: var(--accent);
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+  transition: border-color 0.18s ease;
+}
+
+.page-content a:hover {
+  border-bottom-color: var(--accent);
+}
+
+.page-content ul,
+.page-content ol {
+  margin: 0.5rem 0 1.25rem 1.4rem;
+}
+
+.page-content li {
+  margin-bottom: 0.35rem;
+  color: var(--text);
+}
+
+.page-content hr {
+  border: none;
+  border-top: 1px solid var(--border);
+  margin: 2.75rem 0;
+}
+
+.page-content strong {
+  color: var(--text);
+  font-weight: 600;
+}
+
+.page-content em {
+  font-style: italic;
+  color: var(--muted);
+}
+
+.page-content code {
+  font-family: 'Courier New', monospace;
+  font-size: 0.82rem;
+  background: var(--surface);
+  color: var(--accent);
+  padding: 0.1em 0.45em;
+  border-radius: 3px;
+  border: 1px solid var(--border);
+}
+
+.page-content pre {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  padding: 1.4rem;
+  border-radius: 4px;
+  overflow-x: auto;
+  margin: 1.5rem 0;
+}
+
+.page-content pre code {
+  background: none;
+  padding: 0;
+  border: none;
+  color: var(--text);
+  font-size: 0.85rem;
+}
+
+.page-content blockquote {
+  border-left: 2px solid var(--accent);
+  padding-left: 1.25rem;
+  margin: 1.5rem 0;
+  color: var(--muted);
+  font-style: italic;
+}
+
+/* ── Home page - hero variant ────────────────────────── */
+
+.page-content.is-home h1 {
+  font-size: 3.5rem;
+  margin-bottom: 2rem;
+}
+
+/* ── Collections / Tags pages ────────────────────────── */
+
+.post-list {
+  margin-top: 2rem;
+}
+
+.post-item {
+  padding: 1.5rem 0;
+  border-bottom: 1px solid var(--border);
+}
+
+.post-item:first-child {
+  border-top: 1px solid var(--border);
+}
+
+.post-item h3 {
+  font-family: var(--serif);
+  font-size: 1.1rem;
+  font-weight: 500;
+  font-style: normal;
+  margin: 0 0 0.3rem;
+}
+
+.post-item h3 a {
+  color: var(--text);
+  text-decoration: none;
+  border-bottom: none;
+  transition: color 0.18s ease;
+}
+
+.post-item h3 a:hover {
+  color: var(--accent);
+}
+
+.post-date {
+  font-size: 0.8rem;
+  color: var(--muted);
+  letter-spacing: 0.04em;
+}
+
+.tag-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-top: 1.5rem;
+}
+
+.tag-chip {
+  font-size: 0.78rem;
+  color: var(--muted);
+  border: 1px solid var(--border);
+  padding: 0.2rem 0.75rem;
+  border-radius: 2px;
+  text-decoration: none;
+  letter-spacing: 0.04em;
+  transition: color 0.18s ease, border-color 0.18s ease;
+}
+
+.tag-chip:hover {
+  color: var(--accent);
+  border-color: var(--accent);
+}
+
+/* ── Footer ──────────────────────────────────────────── */
+
+.site-footer {
+  width: 100%;
+  max-width: var(--max-w);
+  margin: 0 auto;
+  padding: 1.5rem;
+  border-top: 1px solid var(--border);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.copyright {
+  font-size: 0.78rem;
+  color: var(--muted);
+  font-family: var(--body);
+}
+
+.footer-links {
+  display: flex;
+  gap: 1.5rem;
+}
+
+.footer-links a {
+  font-size: 0.78rem;
+  color: var(--muted);
+  text-decoration: none;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  transition: color 0.18s ease;
+}
+
+.footer-links a:hover {
+  color: var(--accent);
+}
+
+/* ── Responsive ──────────────────────────────────────── */
+
+@media (max-width: 580px) {
+  .site-header {
+    flex-direction: column;
+    gap: 1.25rem;
+    padding-top: 2rem;
+  }
+
+  .site-nav {
+    gap: 1.25rem;
+  }
+
+  .page-content h1 {
+    font-size: 2rem;
+  }
+
+  .page-content.is-home h1 {
+    font-size: 2.4rem;
+  }
+
+  .site-footer {
+    flex-direction: column;
+    gap: 1rem;
+    text-align: center;
+  }
+}

@@ -1,0 +1,12 @@
+{{define "header"}}
+<header class="site-header">
+    <a href="/index.html" class="site-name">C Kaustubh</a>
+    <nav class="site-nav">
+        {{range .DeepDataMerge.LayoutConfig.Navbar}}
+            {{range $name, $url := .}}
+            <a href="/{{$url}}" class="nav-link">{{$name}}</a>
+            {{end}}
+        {{end}}
+    </nav>
+</header>
+{{end}}
