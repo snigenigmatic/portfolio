@@ -3,11 +3,13 @@
 :root {
   --bg:      #0c0c0c;
   --surface: #141414;
+  --surface-2:#171717;
   --text:    #e2d9cc;
   --muted:   #7a7166;
   --accent:  #c9a96e;
   --border:  #252525;
-  --max-w:   700px;
+  --max-w:   1040px;
+  --reading-w: 760px;
   --serif:   'Playfair Display', Georgia, serif;
   --body:    'Lora', Georgia, serif;
 }
@@ -28,8 +30,9 @@ body {
   background: var(--bg);
   color: var(--text);
   font-family: var(--body);
-  font-size: 1rem;
-  line-height: 1.8;
+  font-size: 1.02rem;
+  line-height: 1.9;
+  font-weight: 400;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -69,11 +72,10 @@ body {
 
 .nav-link {
   font-family: var(--body);
-  font-size: 0.78rem;
+  font-size: 0.8rem;
   color: var(--muted);
   text-decoration: none;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
+  letter-spacing: 0.03em;
   transition: color 0.18s ease;
 }
 
@@ -87,19 +89,23 @@ body {
   width: 100%;
   max-width: var(--max-w);
   margin: 0 auto;
-  padding: 4.5rem 1.5rem 3rem;
+  padding: 4rem 1.5rem 3rem;
   flex: 1;
 }
 
 /* ── Typography ──────────────────────────────────────── */
 
+.page-content {
+  max-width: var(--reading-w);
+}
+
 .page-content h1 {
   font-family: var(--serif);
-  font-size: 2.75rem;
+  font-size: 3rem;
   font-weight: 700;
   line-height: 1.15;
   color: var(--text);
-  margin-bottom: 1.75rem;
+  margin-bottom: 1.5rem;
   letter-spacing: -0.015em;
 }
 
@@ -126,6 +132,7 @@ body {
 .page-content p {
   color: var(--text);
   margin-bottom: 1.25rem;
+  text-wrap: pretty;
 }
 
 .page-content p:last-child {
@@ -161,7 +168,7 @@ body {
 
 .page-content strong {
   color: var(--text);
-  font-weight: 600;
+  font-weight: 500;
 }
 
 .page-content em {
@@ -240,8 +247,126 @@ body {
 /* ── Home page - hero variant ────────────────────────── */
 
 .page-content.is-home h1 {
-  font-size: 3.5rem;
-  margin-bottom: 2rem;
+  font-size: 3.6rem;
+  margin-bottom: 1.25rem;
+}
+
+.page-content.is-home {
+  max-width: 100%;
+}
+
+.home-hero {
+  display: grid;
+  grid-template-columns: 1.3fr 0.9fr;
+  gap: 2.5rem;
+  align-items: start;
+  margin-bottom: 2.5rem;
+}
+
+.home-hero-copy {
+  max-width: 720px;
+}
+
+.home-hero-meta {
+  color: var(--muted);
+  font-size: 0.94rem;
+  margin-bottom: 0.9rem;
+}
+
+.home-portrait {
+  width: 100%;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  overflow: hidden;
+  background: var(--surface);
+  box-shadow: 0 24px 44px rgba(0, 0, 0, 0.28);
+}
+
+.home-portrait img {
+  width: 100%;
+  display: block;
+  object-fit: cover;
+  aspect-ratio: 4 / 5;
+}
+
+.featured-project {
+  border: 1px solid var(--border);
+  background: linear-gradient(145deg, var(--surface) 0%, var(--surface-2) 100%);
+  border-radius: 10px;
+  padding: 1.2rem 1.1rem;
+  margin: 1.4rem 0 2rem;
+}
+
+.featured-project h3 {
+  margin-top: 0;
+  font-style: normal;
+  font-size: 1.2rem;
+}
+
+.project-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.9rem;
+  margin-top: 0.6rem;
+}
+
+.project-links a {
+  font-size: 0.9rem;
+}
+
+.project-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1.2rem;
+  margin-top: 1.4rem;
+}
+
+.project-card {
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  background: linear-gradient(150deg, var(--surface) 0%, var(--surface-2) 100%);
+  overflow: hidden;
+}
+
+.project-media {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  display: block;
+  border-bottom: 1px solid var(--border);
+}
+
+.project-body {
+  padding: 0.95rem;
+}
+
+.project-title {
+  margin: 0;
+  font-family: var(--serif);
+  font-size: 1.16rem;
+  line-height: 1.35;
+}
+
+.project-title a {
+  color: var(--text);
+  border-bottom: none;
+}
+
+.project-title a:hover {
+  color: var(--accent);
+}
+
+.project-impact {
+  color: var(--text);
+  margin: 0.55rem 0 0.65rem;
+  font-size: 0.95rem;
+  line-height: 1.7;
+}
+
+.project-tags {
+  color: var(--muted);
+  font-size: 0.82rem;
+  letter-spacing: 0.02em;
 }
 
 /* ── Collections / Tags pages ────────────────────────── */
@@ -335,8 +460,7 @@ body {
   font-size: 0.78rem;
   color: var(--muted);
   text-decoration: none;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
+  letter-spacing: 0.04em;
   transition: color 0.18s ease;
 }
 
@@ -371,6 +495,20 @@ body {
 
   .site-nav {
     gap: 1.25rem;
+  }
+
+  .main-content {
+    padding-top: 2.75rem;
+  }
+
+  .home-hero {
+    grid-template-columns: 1fr;
+    gap: 1.25rem;
+  }
+
+  .project-grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
   }
 
   .page-content h1 {

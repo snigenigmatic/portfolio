@@ -30,8 +30,14 @@ TA for Microprocessors and Computer Architecture (UE24CS351B) under Prof. Chitra
 
 ## Skills
 
-**Languages & Frameworks** — Rust, C/C++, Go, Python, TypeScript, Next.js, PyTorch, Bash
+### Distributed Systems Engineering
 
-**Infrastructure & DevOps** — Docker, Kubernetes, GitHub Actions (CI/CD), Linux, Git, Redis, Kafka, Spark
+Rust, C/C++, Go, Python, Kafka, Redis, Linux, Bash
 
-**ML & Data** — PyTorch, CUDA, OpenCV, Sentence-BERT, YOLOv11, LLaVA, LLaMA, Flower (Federated Learning)
+### ML Systems and Applied Research
+
+PyTorch, CUDA, OpenCV, Sentence-BERT, YOLOv11, LLaVA, LLaMA, Flower
+
+### Infrastructure and Delivery
+
+Docker, Kubernetes, GitHub Actions (CI/CD), Spark, Git

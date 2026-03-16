@@ -4,15 +4,37 @@ date: 2026-03-14
 description: "CS undergraduate at PES University. Systems programmer, ML researcher."
 ---
 
+<section class="home-hero">
+	<div class="home-hero-copy">
+		<p class="home-hero-meta">Student, ML and Systems Engineer · Bengaluru</p>
+    
 # C Kaustubh
 
 Third-year Computer Science undergraduate at PES University, Bengaluru.
 
-I build things at the intersection of systems and intelligence — distributed infrastructure in Rust and Go, ML pipelines in PyTorch, and multi-modal architectures that hold up against frontier models. I care about correctness, performance, and being honest about tradeoffs.
+I build at the intersection of systems and intelligence: distributed infrastructure in Rust and Go, ML pipelines in PyTorch, and multi-modal architectures that are designed to survive real-world constraints. I care about correctness, performance, and transparent tradeoffs.
 
-Currently a Teaching Assistant for Microprocessors and Computer Architecture, and Tech Lead at Shunya PESU. Research intern at C-ISFCR in summer 2025.
-Upcoming AI R&D intern at Aveva in summer 2026.
+- Teaching Assistant for Microprocessors and Computer Architecture, and Tech Lead at Shunya PESU.
+- Research Intern at C-ISFCR in summer 2025.
+- Incoming AI R&D Intern at Aveva in summer 2026.
 
----
+	</div>
+	<aside class="home-portrait">
+		<img src="/static/Kaustubh.jpg" alt="Portrait of C Kaustubh" loading="lazy" />
+	</aside>
+</section>
 
-[About](/about.html) · [Projects](/projects.html) · [Resume](/resume.html) · [Contact](/contact.html)
+<section class="featured-project">
+	<h3>Featured: MediChain-FL</h3>
+	<p>
+		Built a HIPAA-compliant federated learning system for medical imaging with PyTorch and Flower,
+		integrated CKKS homomorphic encryption and on-chain auditability, and reached 93% pneumonia
+		detection accuracy without sharing raw patient data.
+	</p>
+	<div class="project-links">
+		<a href="https://github.com/snigenigmatic/MediChain-FL" target="_blank" rel="noopener">View repository</a>
+		<a href="/projects.html">Browse all projects</a>
+	</div>
+</section>
+
+[About](/about.html) · [Projects](/projects.html) · [Contact](/contact.html) · [Resume](/resume.html)
