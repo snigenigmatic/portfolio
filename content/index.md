@@ -14,8 +14,9 @@ Third-year Computer Science undergraduate at PES University, Bengaluru.
 
 I build at the intersection of systems and intelligence: distributed infrastructure in Rust and Go, ML pipelines in PyTorch, and multi-modal architectures that are designed to survive real-world constraints. I care about correctness, performance, and transparent tradeoffs.
 
-- Teaching Assistant for Microprocessors and Computer Architecture, and Tech Lead at Shunya PESU.
-- Research Intern at C-ISFCR in summer 2025.
+- Teaching Assistant for Microprocessors and Computer Architecture in the [Dept. of Computer Science and Engineering, PES University](https://cs.pes.edu).
+- Tech Lead at [Shunya PESU](https://shunya-pes.vercel.app/).
+- Research Intern at [C-ISFCR](https://www.isfcr.pes.edu/) in summer 2025.
 - Incoming AI R&D Intern at Aveva in summer 2026.
 
 	</div>
