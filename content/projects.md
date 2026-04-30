@@ -29,6 +29,15 @@ Built for systems reliability, low-level performance, and applied ML. Full sourc
 </article>
 
 <article class="project-card">
+<img class="project-media" src="https://opengraph.githubassets.com/1/snigenigmatic/sql-engine" alt="sql-engine project preview" loading="lazy" />
+<div class="project-body">
+<h3 class="project-title"><a href="https://github.com/snigenigmatic/sql-engine" target="_blank" rel="noopener">sql-engine</a></h3>
+<p class="project-impact">An educational SQL database engine built from scratch in C++ to understand database internals. </p>
+<p class="project-tags">C++ · Database Systems · Query Processing · Optimization</p>
+</div>
+</article>
+
+<article class="project-card">
 <img class="project-media" src="https://opengraph.githubassets.com/1/snigenigmatic/orderbook" alt="orderbook project preview" loading="lazy" />
 <div class="project-body">
 <h3 class="project-title"><a href="https://github.com/snigenigmatic/orderbook" target="_blank" rel="noopener">orderbook</a></h3>
