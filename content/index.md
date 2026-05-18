@@ -21,7 +21,7 @@ Third-year Computer Science undergraduate at PES University, Bengaluru.
 - Tech Lead at [Shunya PESU](https://shunya-pes.vercel.app/).
 - Research Intern at [C-ISFCR](https://www.isfcr.pes.edu/) in summer 2025.
 - Incoming AI R&D Intern at Aveva - Summer 2026.
-- Open Source Contributor to [LanceDB](https://github.com/lancedb/lancedb) and Core Contributor to [Vektori](https://github.com/vektori-ai/vektori).
+- Open Source Contributor to [LanceDB](https://github.com/lancedb/lancedb), [Firecracker](https://github.com/firecracker-microvm/firecracker) and Core Contributor to [Vektori](https://github.com/vektori-ai/vektori).
 
 	</div>
 	<aside class="home-portrait">
