@@ -20,6 +20,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,700;1,400&family=Lora:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="/static/style.css" />
+    <script src="/static/neko.js" defer></script>
 </head>
 
 <body>
@@ -56,25 +57,52 @@
         
         <article class="page-content">
             <h1 id="about">About</h1>
-<p>I am a third-year Computer Science student at PES University.</p>
-<p>My work sits at the intersection of systems programming, distributed infrastructure, and machine learning. I am drawn to problems where correctness and performance are both required. I have a particular interest in multi-modal machine learning, and its applications to video understanding and anomaly detection.</p>
-<hr>
+<p class="lede">
+	I am a third-year Computer Science student at PES University. I like problems where performance, correctness, and practical ML constraints meet.
+</p>
+<section class="profile-grid">
+	<article class="info-panel">
+		<h2>Core Direction</h2>
+		<p>Systems programming, distributed infrastructure, ML systems, and applied research.</p>
+	</article>
+	<article class="info-panel">
+		<h2>Research Interest</h2>
+		<p>Multi-modal learning, ASR alignment, agentic memory, video understanding, and anomaly detection.</p>
+	</article>
+	<article class="info-panel">
+		<h2>How I Work</h2>
+		<p>I prefer measurable claims: benchmarks, accuracy, latency, failure modes, and maintainable implementations.</p>
+	</article>
+</section>
 <h2 id="experience">Experience</h2>
-<h3 id="research-intern--c-isfcr-pes-universityhttpswwwisfcrpesedu">Research Intern — <a href="https://www.isfcr.pes.edu/">C-ISFCR, PES University</a></h3>
-<p><em>Jun 2025 – Jul 2025, under Prof. Preet Kanwal</em></p>
-<p>Designed and evaluated four multi-modal architectures (YOLOv11 + Optical Flow + LLaVA-Next + LLaMA-3) for unsupervised video anomaly detection, achieving 75.48% classification accuracy on the NWPU Campus Dataset across 16.5 hours of footage.</p>
-<p>Built a novel keyword-free composite anomaly scoring framework combining semantic (SBERT), visual (ResNet-50), object distribution (Jensen-Shannon divergence), and temporal dynamics signals. F1 scores of 0.845–0.895 across all test categories. Benchmarked against Gemini-2.5-Flash — comparable anomaly scores at significantly lower serving cost.</p>
-<h3 id="teaching-assistant--dept-of-computer-science-and-engineering-pes-universityhttpscspesedu">Teaching Assistant — <a href="https://cs.pes.edu/">Dept. of Computer Science and Engineering, PES University</a></h3>
-<p><em>Jan 2026 – Present</em></p>
-<p>TA for Microprocessors and Computer Architecture (UE24CS351B) under Prof. Chitra GM. Prepared course material and the evaluation schema for the course project, serving 700+ students.</p>
-<hr>
+<section class="timeline">
+	<article class="timeline-item">
+		<h3><a href="https://www.isfcr.pes.edu/">Research Intern, C-ISFCR</a></h3>
+		<time>Jun 2025 - Jul 2025, under Prof. Preet Kanwal</time>
+		<p>Designed and evaluated four multi-modal architectures for unsupervised video anomaly detection, reaching 75.48% classification accuracy on 16.5 hours of NWPU Campus Dataset footage.</p>
+		<p>Built a keyword-free composite anomaly scoring framework using semantic, visual, object distribution, and temporal signals, with F1 scores of 0.845-0.895 across test categories.</p>
+	</article>
+	<article class="timeline-item">
+		<h3><a href="https://cs.pes.edu/">Teaching Assistant, PES CSE</a></h3>
+		<time>Jan 2026 - Present</time>
+		<p>TA for Microprocessors and Computer Architecture under Prof. Chitra GM. Prepared course material and the course project evaluation schema for 700+ students.</p>
+	</article>
+</section>
 <h2 id="skills">Skills</h2>
-<h3 id="distributed-systems-engineering">Distributed Systems Engineering</h3>
-<p>Rust, C/C++, Go, Python, Kafka, Redis, Linux, Bash</p>
-<h3 id="ml-systems-and-applied-research">ML Systems and Applied Research</h3>
-<p>PyTorch, CUDA, OpenCV, Sentence-BERT, YOLOv11, LLaVA, LLaMA, Flower</p>
-<h3 id="infrastructure-and-delivery">Infrastructure and Delivery</h3>
-<p>Docker, Kubernetes, GitHub Actions (CI/CD), Spark, Git</p>
+<section class="skill-matrix">
+	<article class="skill-group">
+		<h3>Distributed Systems</h3>
+		<p>Rust, C/C++, Go, Python, Kafka, Redis, Linux, Bash</p>
+	</article>
+	<article class="skill-group">
+		<h3>ML Systems</h3>
+		<p>PyTorch, CUDA, OpenCV, Sentence-BERT, YOLOv11, LLaVA, LLaMA, Flower</p>
+	</article>
+	<article class="skill-group">
+		<h3>Infrastructure</h3>
+		<p>Docker, Kubernetes, GitHub Actions, Spark, Git</p>
+	</article>
+</section>
 
         </article>
         
@@ -88,7 +116,7 @@
         <a href="mailto:kaustubhc.1105@gmail.com">Email</a>
     </div>
     <div class="footer-credit">
-        Rendered using <a href="https://github.com/anna-ssg/anna">anna</a> ❤️
+        Brewed with <a href="https://github.com/anna-ssg/anna">anna</a>
     </div>
 </footer>
 

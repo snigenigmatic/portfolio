@@ -6,27 +6,44 @@ description: "CS undergraduate at PES University. Systems programmer, ML researc
 
 <section class="home-hero">
 	<div class="home-hero-copy">
-		<p class="home-hero-meta">Student, ML and AI Engineer · Bengaluru</p>
-    
-# C Kaustubh
-
-Third-year Computer Science undergraduate at PES University, Bengaluru.
-
-- I build at the intersection of systems and intelligence: distributed infrastructure in Rust and Go, ML pipelines in PyTorch, and multi-modal architectures that are designed to survive real-world constraints.
--  I care about correctness, performance, and transparent tradeoffs. My current research focus is on RLHF and RLVR for ASR Models and Agentic Memory Architectures. Open-Source Cloud-Native tools are my new hobby. 
-
----
-
-- Teaching Assistant for Microprocessors and Computer Architecture in the [Dept. of Computer Science and Engineering, PES University](https://cs.pes.edu).
-- Tech Lead at [Shunya PESU](https://shunya-pes.vercel.app/).
-- Research Intern at [C-ISFCR](https://www.isfcr.pes.edu/) in summer 2025.
-- Incoming AI R&D Intern at Aveva - Summer 2026.
-- Open Source Contributor to [LanceDB](https://github.com/lancedb/lancedb), [Firecracker](https://github.com/firecracker-microvm/firecracker) and Core Contributor to [Vektori](https://github.com/vektori-ai/vektori).
-
+		<p class="home-hero-meta">CS undergraduate - systems, ML, infrastructure - Bengaluru</p>
+		<h1>C Kaustubh</h1>
+		<p class="home-intro">
+			I build reliable distributed systems, ML pipelines, and performance-oriented developer tools with Rust, Go, Python, CUDA, and PyTorch.
+		</p>
+		<div class="signal-grid">
+			<div class="signal" data-note="Systems">
+				<span>Now</span>
+				<strong>Teaching Assistant at PES University and Tech Lead at Shunya PESU.</strong>
+			</div>
+			<div class="signal" data-note="ML">
+				<span>Research</span>
+				<strong>RLHF/RLVR for ASR models, agentic memory, and video anomaly detection.</strong>
+			</div>
+			<div class="signal" data-note="Open Source">
+				<span>Open Source</span>
+				<strong>LanceDB, Firecracker, and core contributor to Vektori.</strong>
+			</div>
+		</div>
 	</div>
 	<aside class="home-portrait">
 		<img src="/static/Kaustubh.jpg" alt="Portrait of C Kaustubh" loading="lazy" />
 	</aside>
+</section>
+
+<section class="home-quick">
+	<article class="info-panel">
+		<h2>Focus</h2>
+		<p>Distributed systems, ML systems, cloud-native infrastructure, and low-level performance.</p>
+	</article>
+	<article class="info-panel">
+		<h2>Proof</h2>
+		<p>Research intern at C-ISFCR, Deployfest 2026 runner-up, and multiple from-scratch systems projects.</p>
+	</article>
+	<article class="info-panel">
+		<h2>Open To</h2>
+		<p>Fall 2026 internships in ML, MLOps, systems, backend engineering, and applied AI R&D.</p>
+	</article>
 </section>
 
 <section class="featured-project">
@@ -40,4 +57,9 @@ Third-year Computer Science undergraduate at PES University, Bengaluru.
 	</div>
 </section>
 
-[About](/about.html) · [Projects](/projects.html) · [Contact](/contact.html) · [Resume](/resume.html)
+<nav class="page-actions" aria-label="Primary links">
+	<a href="/about.html">About</a>
+	<a href="/projects.html">Projects</a>
+	<a href="/contact.html">Contact</a>
+	<a href="/resume.html">Resume</a>
+</nav>
