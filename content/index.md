@@ -1,7 +1,7 @@
 ---
 title: "C Kaustubh"
-date: 2026-03-14
-description: "CS undergraduate at PES University. Systems programmer, ML researcher."
+date: 2026-08-04
+description: "CS undergraduate at PES University. AI engineer, systems programmer, ML researcher."
 ---
 
 <section class="home-hero">
@@ -14,11 +14,11 @@ description: "CS undergraduate at PES University. Systems programmer, ML researc
 		<div class="signal-grid">
 			<div class="signal" data-note="Systems">
 				<span>Now</span>
-				<strong>Teaching Assistant at PES University and Tech Lead at Shunya PESU.</strong>
+				<strong>AIML Intern at AVEVA (Schneider Electric), building production LLM agents for industrial software.</strong>
 			</div>
 			<div class="signal" data-note="ML">
 				<span>Research</span>
-				<strong>RLHF/RLVR for ASR models, agentic memory, and video anomaly detection.</strong>
+				<strong>Uncertainty-aware RAG, RL post-training for ASR fairness, and video anomaly detection.</strong>
 			</div>
 			<div class="signal" data-note="Open Source">
 				<span>Open Source</span>
@@ -34,11 +34,11 @@ description: "CS undergraduate at PES University. Systems programmer, ML researc
 <section class="home-quick">
 	<article class="info-panel">
 		<h2>Focus</h2>
-		<p>Distributed systems, ML systems, cloud-native infrastructure, and low-level performance.</p>
+		<p>LLM agents in production, ML systems, distributed infrastructure, and low-level performance.</p>
 	</article>
 	<article class="info-panel">
 		<h2>Proof</h2>
-		<p>Research intern at C-ISFCR, Deployfest 2026 runner-up, and multiple from-scratch systems projects.</p>
+		<p>Production AI agent work at AVEVA, Deployfest 2026 1st runner-up, Agentathon '26 winner, and Google DeepMind Bangalore Hackathon finalist.</p>
 	</article>
 	<article class="info-panel">
 		<h2>Open To</h2>
@@ -49,7 +49,7 @@ description: "CS undergraduate at PES University. Systems programmer, ML researc
 <section class="featured-project">
 	<h3>Featured: qwen_cuda</h3>
 	<p>
-		From scratch implementation of a CUDA backend for the Qwen model family, optimizing memory usage and computational efficiency. Improved benchmark scores by ~3 tok/s.
+		From-scratch CUDA C++ inference engine for Qwen3-8B with no frameworks: GGUF parsing, custom kernels, GQA with KV cache, flash attention, and CUDA graph capture in ~1600 lines. Runs at ~37 tok/s on an RTX 4090 at ~17.1 GB peak VRAM.
 	</p>
 	<div class="project-links">
 		<a href="https://github.com/snigenigmatic/qwen_cuda" target="_blank" rel="noopener">View repository</a>

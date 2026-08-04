@@ -1,6 +1,6 @@
 ---
 title: "Projects"
-date: 2026-03-14
+date: 2026-08-04
 description: "Selected projects by C Kaustubh — systems, ML, and infrastructure."
 ---
 
@@ -14,8 +14,53 @@ Built for systems reliability, low-level performance, and applied ML. Full sourc
 <img class="project-media" src="https://opengraph.githubassets.com/1/snigenigmatic/qwen_cuda" alt="qwen_cuda project preview" loading="lazy" />
 <div class="project-body">
 <h3 class="project-title"><a href="https://github.com/snigenigmatic/qwen_cuda" target="_blank" rel="noopener">qwen_cuda</a></h3>
-<p class="project-impact">From scratch implementation of a CUDA backend for the Qwen model, optimizing memory usage and computational efficiency. Improved benchmark scores by ~3 tok/s</p>
+<p class="project-impact">From-scratch CUDA C++ inference engine for Qwen3-8B, no frameworks. GGUF parsing, custom kernels, GQA with KV cache, flash attention, and CUDA graph capture in ~1600 lines. ~37 tok/s on an RTX 4090 at ~17.1 GB peak VRAM.</p>
 <p class="project-tags">CUDA · ML · Optimization · Performance</p>
+</div>
+</article>
+
+<article class="project-card">
+<img class="project-media" src="https://opengraph.githubassets.com/1/snigenigmatic/UncertaRAG" alt="UncertaRAG project preview" loading="lazy" />
+<div class="project-body">
+<h3 class="project-title"><a href="https://github.com/snigenigmatic/UncertaRAG" target="_blank" rel="noopener">UncertaRAG</a></h3>
+<p class="project-impact">Epistemic uncertainty-aware RAG on Mistral-7B. 12-experiment grid reaching AUROC 0.815 under INT4 quantization.</p>
+<p class="project-tags">Python · RAG · Uncertainty Quantification · Research</p>
+</div>
+</article>
+
+<article class="project-card">
+<img class="project-media" src="https://opengraph.githubassets.com/1/snigenigmatic/Rakshak-AI" alt="Rakshak-AI project preview" loading="lazy" />
+<div class="project-body">
+<h3 class="project-title"><a href="https://github.com/snigenigmatic/Rakshak-AI" target="_blank" rel="noopener">Rakshak-AI</a></h3>
+<p class="project-impact">Multi-agent compliance system on LangGraph with a knowledge graph core. 1st runner-up at GDG Cloud Bengaluru Deployfest 2026.</p>
+<p class="project-tags">Python · LangGraph · Multi-Agent · Knowledge Graphs</p>
+</div>
+</article>
+
+<article class="project-card">
+<img class="project-media" src="https://opengraph.githubassets.com/1/snigenigmatic/MELA" alt="MELA project preview" loading="lazy" />
+<div class="project-body">
+<h3 class="project-title"><a href="https://github.com/snigenigmatic/MELA" target="_blank" rel="noopener">MELA</a></h3>
+<p class="project-impact">Offline system for reconnecting missing persons with their families using on-device Gemma. Top 6 finalist at the Google DeepMind Bangalore Hackathon, built in one day with Team Ring Zero.</p>
+<p class="project-tags">Python · On-Device ML · Gemma · Hackathon Finalist</p>
+</div>
+</article>
+
+<article class="project-card">
+<img class="project-media" src="https://opengraph.githubassets.com/1/snigenigmatic/localens" alt="LocalLens project preview" loading="lazy" />
+<div class="project-body">
+<h3 class="project-title"><a href="https://github.com/snigenigmatic/localens" target="_blank" rel="noopener">LocalLens</a></h3>
+<p class="project-impact">MCP-native multimodal file search built on jina-embeddings-v5-omni, LanceDB, and FastAPI, with a Linux/WSL port.</p>
+<p class="project-tags">Python · MCP · Embeddings · LanceDB</p>
+</div>
+</article>
+
+<article class="project-card">
+<img class="project-media" src="https://opengraph.githubassets.com/1/snigenigmatic/aloo" alt="aloo project preview" loading="lazy" />
+<div class="project-body">
+<h3 class="project-title"><a href="https://github.com/snigenigmatic/aloo" target="_blank" rel="noopener">aloo</a></h3>
+<p class="project-impact">Rust-based safety auditing layer for npm/npx packages. Two-tier architecture: a deterministic analysis pipeline plus an LLM intelligence layer.</p>
+<p class="project-tags">Rust · Supply Chain Security · LLM · Tooling</p>
 </div>
 </article>
 
