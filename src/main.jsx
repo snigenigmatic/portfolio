@@ -1,11 +1,12 @@
-import React, {useState, useEffect} from 'react';
+import React, {useState, useEffect, useLayoutEffect} from 'react';
 import {createRoot} from 'react-dom/client';
-import {motion, AnimatePresence, MotionConfig} from 'motion/react';
+import {motion, AnimatePresence, MotionConfig, useReducedMotion} from 'motion/react';
 import {projects} from './data';
 import profile from '../content/profile.json';
 import './style.css';
 
 import Icon from './Icon';
+import {useNavigation} from './navigation';
 const Arrow = () => <Icon name="arrow"/>;
 const Label = ({children}) => <span className="eyebrow">{children}</span>;
 const email = `mailto:${profile.email}`;
@@ -19,22 +20,23 @@ function Mark() {
   </svg>;
 }
 
-function Header() {
+function Header({path}) {
   const [open, setOpen] = useState(false);
   useEffect(() => {
     const close = e => { if (e.key === 'Escape') setOpen(false); };
     window.addEventListener('keydown', close);
     return () => window.removeEventListener('keydown', close);
   }, []);
-  return <header className="header">
+  useEffect(() => setOpen(false), [path]);
+  return <header className="header" onClick={e=>{if(e.target.closest('a'))setOpen(false)}}>
     <a className="brand" href="/" aria-label="Kaustubh home"><Mark/><span>Kaustubh</span></a>
     <nav className="desktop-nav" aria-label="Main navigation">
-      <a href="/"><Icon name="home"/> Home</a><a href="/contact.html"><Icon name="mail"/> Contact</a><a href="/resume.html"><Icon name="file"/> Résumé</a>
+      <a href="/" aria-current={path==='/'?'page':undefined}><Icon name="home"/> Home</a><a href="/contact.html" aria-current={path==='/contact.html'?'page':undefined}><Icon name="mail"/> Contact</a><a href="/resume.html" aria-current={path==='/resume.html'?'page':undefined}><Icon name="file"/> Résumé</a>
     </nav>
     <a className="header-contact" href={email}><Icon name="mail"/> Email <Arrow/></a>
     <button className="menu-toggle" aria-expanded={open} aria-controls="mobile-nav" onClick={() => setOpen(!open)}>{open ? 'Close −' : 'Menu +'}</button>
     <AnimatePresence>{open && <motion.nav id="mobile-nav" className="mobile-nav" aria-label="Mobile navigation" initial={{opacity:0}} animate={{opacity:1}} exit={{opacity:0}}>
-      <a href="/"><Icon name="home"/> Home</a><a href="/resume.html"><Icon name="file"/> Résumé</a><a href="/contact.html"><Icon name="mail"/> Contact</a>
+      <a href="/" aria-current={path==='/'?'page':undefined}><Icon name="home"/> Home</a><a href="/resume.html" aria-current={path==='/resume.html'?'page':undefined}><Icon name="file"/> Résumé</a><a href="/contact.html" aria-current={path==='/contact.html'?'page':undefined}><Icon name="mail"/> Contact</a>
     </motion.nav>}</AnimatePresence>
   </header>;
 }
@@ -126,8 +128,8 @@ function SocialLinks({rows=false}) {
   return <div className={rows?'contact-directory':'social-links'}>{profile.socials.map(s=><a key={s.icon} href={s.url} target={s.icon==='mail'?undefined:'_blank'} rel={s.icon==='mail'?undefined:'noopener noreferrer'}><Icon name={s.icon}/><span>{s.label}{rows&&<small>{s.display}</small>}</span>{rows&&<Arrow/>}</a>)}</div>;
 }
 
-function Footer() {
-  const onContact=window.location.pathname.includes('contact');
+function Footer({path}) {
+  const onContact=path.includes('contact');
   return <>{!onContact&&<section className="contact-section" id="contact"><h2><Icon name="mail"/> Good to meet you.</h2><p className="contact-invite">If you’re working on something related, or want to compare notes, write to me.</p><a className="text-link" href="/contact.html">Contact <Arrow/></a></section>}<footer className="footer"><span>© {new Date().getFullYear()} Kaustubh</span><SocialLinks/><a className="back-top" href="#top" aria-label="Back to top"><Icon name="up"/></a></footer></>;
 }
 
@@ -136,13 +138,50 @@ function ContactPage() {
 }
 
 function ResumePage() {
-  return <main id="main" className="section inner-page"><h1>Résumé</h1><a className="button" href="/resume.pdf" target="_blank" rel="noopener noreferrer"><Icon name="file"/> Open PDF <Arrow/></a><a className="text-link resume-download" href="/resume.pdf" download="C-Kaustubh-Resume.pdf"><Icon name="down"/> Download</a><object className="resume-viewer" data="/resume.pdf" type="application/pdf" aria-label="C Kaustubh résumé"><p><a href="/resume.pdf">Read the résumé PDF</a></p></object></main>;
+  const [preview,setPreview]=useState({state:'loading',url:null});
+  const [showLoading,setShowLoading]=useState(false);
+  useEffect(()=>{
+    const abort=new AbortController();
+    let objectURL;
+    const timer=setTimeout(()=>setShowLoading(true),200);
+    const load=async()=>{
+      try {
+        const response=await fetch('/resume.pdf',{signal:abort.signal});
+        if(!response.ok)throw new Error('PDF unavailable');
+        const blob=await response.blob();
+        if(!(await blob.slice(0,5).text()).startsWith('%PDF-'))throw new Error('Invalid PDF response');
+        if(abort.signal.aborted)return;
+        objectURL=URL.createObjectURL(blob);
+        setPreview({state:'ready',url:objectURL});
+      } catch(error) {
+        if(!abort.signal.aborted)setPreview({state:'error',url:null});
+      } finally { clearTimeout(timer); }
+    };
+    load();
+    return()=>{abort.abort();clearTimeout(timer);if(objectURL)URL.revokeObjectURL(objectURL)};
+  },[]);
+  return <main id="main" className="section inner-page"><h1>Résumé</h1><a className="button" href="/resume.pdf" target="_blank" rel="noopener noreferrer"><Icon name="file"/> Open PDF <Arrow/></a><a className="text-link resume-download" href="/resume.pdf" download="C-Kaustubh-Resume.pdf"><Icon name="down"/> Download</a>
+    <div className="resume-preview" aria-busy={preview.state==='loading'}>
+      {preview.state==='loading'&&showLoading&&<p className="pdf-status" role="status"><span className="loading-spinner" aria-hidden="true"/>Loading résumé…</p>}
+      {preview.state==='error'&&<p className="pdf-status" role="status">The preview couldn’t load. Use Open PDF or Download above.</p>}
+      {preview.state==='ready'&&<object className="resume-viewer" data={preview.url} type="application/pdf" aria-label="C Kaustubh résumé"><p><a href="/resume.pdf">Open the résumé PDF</a></p></object>}
+    </div>
+  </main>;
+}
+
+function RouteContent({route,complete}) {
+  const reduced=useReducedMotion();
+  useLayoutEffect(()=>{
+    complete(route,reduced);
+    const names={'/contact.html':'Contact — Kaustubh','/resume.html':'Résumé — Kaustubh'};
+    document.title=names[route.path]||'Kaustubh';
+  },[route,reduced]);
+  const page=route.path==='/resume.html'?<ResumePage/>:route.path==='/contact.html'?<ContactPage/>:<main id="main"><Hero/><Interests/><Work/><Experience/><Contributions/><Education/></main>;
+  return <motion.div className="route-view" initial={reduced?false:{opacity:0}} animate={{opacity:1}} exit={reduced?undefined:{opacity:0}} transition={{duration:reduced?0:.09,ease:[.2,0,0,1]}}>{page}<Footer path={route.path}/></motion.div>;
 }
 
 function App() {
-  const path = window.location.pathname;
-  useEffect(()=>{if(/\/(about|projects)(\.html)?\/?$/.test(path)) window.location.replace(path.includes('projects')?'/#work':'/');},[path]);
-  const page = path.includes('resume') ? <ResumePage/> : path.includes('contact') ? <ContactPage/> : <main id="main"><Hero/><Interests/><Work/><Experience/><Contributions/><Education/></main>;
-  return <MotionConfig reducedMotion="user" transition={{duration:.18,ease:[.2,0,0,1]}}><a className="skip-link" href="#main">Skip to content</a><div id="top"/><Header/>{page}<Footer/></MotionConfig>;
+  const {route,complete}=useNavigation();
+  return <MotionConfig reducedMotion="user" transition={{duration:.18,ease:[.2,0,0,1]}}><a className="skip-link" href="#main">Skip to content</a><div id="top"/><Header path={route.path}/><AnimatePresence mode="wait" initial={false}><RouteContent key={route.path} route={route} complete={complete}/></AnimatePresence></MotionConfig>;
 }
 createRoot(document.getElementById('root')).render(<App/>);

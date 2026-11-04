@@ -22,3 +22,9 @@ The homepage lists ASR fairness, UncertaRAG, Qwen CUDA, Rakshak-AI, and LocalLen
 Netlify runs `npm run build` and publishes `dist/`. The build emits `/contact.html` and `/resume.html`. The former About and Projects URLs redirect to the homepage. `/static/resume.pdf` remains valid. Navigation uses Motion for React with 180ms transitions and reduced-motion support.
 
 `rendered/` and `layout/` retain the previous Anna implementation and are not published. `.openai/hosting.json` configures the private review deployment; `netlify.toml` configures Netlify.
+
+## Navigation
+
+Internal page links use the History API with short Motion transitions. Same-page links scroll smoothly; Back and Forward restore the saved position for each history entry. Modified clicks, external links, PDF opens, and downloads retain browser behaviour. Current navigation is labelled with aria-current and new destinations receive keyboard focus.
+
+The PDF preview loads separately, with delayed loading feedback and a fallback; direct Open and Download links remain available. Reduced-motion preferences disable animated scrolling and page fades.
