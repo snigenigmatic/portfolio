@@ -1,0 +1,74 @@
+{
+  "name": "C Kaustubh",
+  "location": "Bengaluru, India",
+  "email": "kaustubhc.1105@gmail.com",
+  "education": {
+    "degree": "B.Tech in Computer Science & Engineering",
+    "institution": "PES University",
+    "dates": "2023–2027",
+    "cgpa": "8.59",
+    "scholarships": "Dr. CNR Rao Scholarship (Semester 1); DAC Distinction Scholarship (Semesters 2–5)."
+  },
+  "experience": [
+    {
+      "company": "Together Fund",
+      "role": "AI Intern",
+      "dates": "Aug 2026–Present",
+      "description": "Building AI products and internal automation for an AI-focused early-stage venture fund."
+    },
+    {
+      "company": "AVEVA",
+      "role": "AI/ML Intern",
+      "dates": "Jun–Jul 2026",
+      "description": "Built Calculation Copilot in AVEVA Connect: natural language to validated KPI calculations using Azure OpenAI. Deployed and managed on Kubernetes."
+    },
+    {
+      "company": "C-ISFCR, PES University",
+      "role": "Research Intern",
+      "dates": "Jun–Jul 2025",
+      "description": "Built a video anomaly detection pipeline using YOLOv11, optical flow, LLaVA-Next, and LLaMA-3. Evaluated on 16.5 hours of NWPU Campus footage."
+    }
+  ],
+  "contributions": [
+    {
+      "name": "LanceDB",
+      "description": "Fixed a Node.js process hang caused by an unreleased Napi::ThreadSafeFunction in the RRF reranker. Merged into python-v0.32.0."
+    },
+    {
+      "name": "Firecracker",
+      "description": "Fixed mutex deadlocks caused by clippy-tracing instrumentation in the VMM. Merged into main."
+    }
+  ],
+  "leadership": {
+    "role": "Tech Lead",
+    "organization": "Shunya PESU",
+    "dates": "Jan 2026–Present",
+    "description": "Built and maintain the club website using React, TypeScript, and Tailwind."
+  },
+  "socials": [
+    {
+      "label": "Email",
+      "icon": "mail",
+      "url": "mailto:kaustubhc.1105@gmail.com",
+      "display": "kaustubhc.1105@gmail.com"
+    },
+    {
+      "label": "LinkedIn",
+      "icon": "linkedin",
+      "url": "https://linkedin.com/in/c-kaustubh",
+      "display": "c-kaustubh"
+    },
+    {
+      "label": "X / Twitter",
+      "icon": "twitter",
+      "url": "https://x.com/kaustubh_1905",
+      "display": "@kaustubh_1905"
+    },
+    {
+      "label": "GitHub",
+      "icon": "github",
+      "url": "https://github.com/snigenigmatic",
+      "display": "snigenigmatic"
+    }
+  ]
+}
