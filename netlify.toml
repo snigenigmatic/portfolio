@@ -1,3 +1,11 @@
 [build]
-  command   = "curl -sL https://github.com/anna-ssg/anna/releases/download/v4.0.0-rc-6/anna_Linux_x86_64.tar.gz | tar -xz && ln -s \"$PWD\" ../site && cd .. && ./site/anna"
-  publish   = "rendered"
+  command = "npm run build"
+  publish = "dist"
+
+[build.environment]
+  NODE_VERSION = "22"
+
+[[headers]]
+  for = "/assets/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
