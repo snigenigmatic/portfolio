@@ -36,7 +36,6 @@ function Header() {
 
 function Hero() {
   return <section className="hero personal-hero" aria-labelledby="hero-title">
-    <div className="hero-top"><Label>C Kaustubh · {profile.location}</Label><Label>Computer Science · PES ’27</Label></div>
     <div className="personal-intro">
       <div className="personal-copy">
         <p className="hello-note">A little about me</p>
