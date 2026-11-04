@@ -1,6 +1,6 @@
 # C Kaustubh — portfolio
 
-React + Vite portfolio. White background, aubergine text, coral accents, Google Sans, and hairline-separated rows.
+React + Vite portfolio. A personal introduction and portrait, an interactive view of the questions behind the work, five projects, experience, and open source contributions. White background, aubergine text, coral accents, Google Sans, and hairline-separated rows.
 
 ```sh
 npm ci

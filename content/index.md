@@ -4,10 +4,12 @@ date: 2026-11-04
 description: "Computer Science student at PES University. AI Intern at Together Fund, Bengaluru."
 ---
 
-# C Kaustubh
+# Hi, I’m Kaustubh.
 
-Computer Science student at PES University (2023–2027). AI Intern at Together Fund in Bengaluru.
+I study computer science, build AI products, and work on the systems underneath.
 
-I build AI products, work on speech recognition research, and write systems software.
+I like understanding how things work well enough to change them. That takes me from speech recognition across Indian accents to CUDA inference and tools for working with AI.
+
+Currently an AI Intern at Together Fund in Bengaluru. Computer Science student at PES University (2023–2027).
 
 [Projects](/projects.html) · [About](/about.html) · [Résumé](/resume.html) · [Contact](/contact.html)
