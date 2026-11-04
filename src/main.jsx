@@ -11,7 +11,12 @@ const Label = ({children}) => <span className="eyebrow">{children}</span>;
 const email = `mailto:${profile.email}`;
 
 function Mark() {
-  return <svg viewBox="0 0 40 40" aria-hidden="true"><path d="M10 9v22M30 9 18 20l12 11M8 20h10" fill="none" stroke="currentColor" strokeWidth="3"/><circle cx="33" cy="7" r="3" fill="var(--orange)"/></svg>;
+  return <svg viewBox="0 0 40 40" aria-hidden="true" className="personal-mark">
+    <path d="M5 7a3 3 0 0 1 3-3h5v32H8a3 3 0 0 1-3-3Z" fill="currentColor"/>
+    <path d="m16 19 12-15h9L23 21Z" fill="currentColor"/>
+    <path d="m16 21 7-2 14 17h-9Z" fill="currentColor"/>
+    <path d="m28 4 5-3 6 6-5 6Z" fill="var(--orange)"/>
+  </svg>;
 }
 
 function Header() {
@@ -22,7 +27,7 @@ function Header() {
     return () => window.removeEventListener('keydown', close);
   }, []);
   return <header className="header">
-    <a className="brand" href="/" aria-label="C Kaustubh home"><Mark/><span>C Kaustubh</span></a>
+    <a className="brand" href="/" aria-label="Kaustubh home"><Mark/><span>Kaustubh</span></a>
     <nav className="desktop-nav" aria-label="Main navigation">
       <a href="/projects.html">Projects</a><a href="/about.html">About</a><a href="/resume.html">Résumé <Arrow/></a>
     </nav>
