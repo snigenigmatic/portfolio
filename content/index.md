@@ -12,4 +12,4 @@ I like understanding how things work well enough to change them. That takes me f
 
 Currently an AI Intern at Together Fund in Bengaluru. Computer Science student at PES University (2023–2027).
 
-[Projects](/projects.html) · [About](/about.html) · [Résumé](/resume.html) · [Contact](/contact.html)
+[Projects](/#work) · [Résumé](/resume.html) · [Contact](/contact.html)

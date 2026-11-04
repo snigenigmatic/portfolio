@@ -5,8 +5,8 @@ import {projects} from './data';
 import profile from '../content/profile.json';
 import './style.css';
 
-const AboutContent = React.lazy(() => import('./AboutContent.jsx'));
-const Arrow = () => <span aria-hidden="true">↗</span>;
+import Icon from './Icon';
+const Arrow = () => <Icon name="arrow"/>;
 const Label = ({children}) => <span className="eyebrow">{children}</span>;
 const email = `mailto:${profile.email}`;
 
@@ -29,12 +29,12 @@ function Header() {
   return <header className="header">
     <a className="brand" href="/" aria-label="Kaustubh home"><Mark/><span>Kaustubh</span></a>
     <nav className="desktop-nav" aria-label="Main navigation">
-      <a href="/projects.html">Projects</a><a href="/about.html">About</a><a href="/resume.html">Résumé <Arrow/></a>
+      <a href="/"><Icon name="home"/> Home</a><a href="/contact.html"><Icon name="mail"/> Contact</a><a href="/resume.html"><Icon name="file"/> Résumé</a>
     </nav>
-    <a className="header-contact" href={email}>Email <Arrow/></a>
+    <a className="header-contact" href={email}><Icon name="mail"/> Email <Arrow/></a>
     <button className="menu-toggle" aria-expanded={open} aria-controls="mobile-nav" onClick={() => setOpen(!open)}>{open ? 'Close −' : 'Menu +'}</button>
     <AnimatePresence>{open && <motion.nav id="mobile-nav" className="mobile-nav" aria-label="Mobile navigation" initial={{opacity:0}} animate={{opacity:1}} exit={{opacity:0}}>
-      <a href="/projects.html">Projects</a><a href="/about.html">About</a><a href="/resume.html">Résumé</a><a href="/contact.html">Contact</a>
+      <a href="/"><Icon name="home"/> Home</a><a href="/resume.html"><Icon name="file"/> Résumé</a><a href="/contact.html"><Icon name="mail"/> Contact</a>
     </motion.nav>}</AnimatePresence>
   </header>;
 }
@@ -47,7 +47,7 @@ function Hero() {
         <h1 id="hero-title">Hi, I’m<br/>Kaustubh<span className="name-period">.</span></h1>
         <p className="personal-lede">I study computer science, build AI products, and work on the systems underneath.</p>
         <p className="personal-motivation">I like understanding how things work well enough to change them. That takes me from speech recognition across Indian accents to CUDA inference and tools for working with AI.</p>
-        <div className="contact-links"><a href="#work">See my work ↓</a><a href={email}>Say hello <Arrow/></a></div>
+        <div className="contact-links"><a href="#work"><Icon name="code"/> See my work <Icon name="down"/></a><a href="/contact.html"><Icon name="mail"/> Say hello <Arrow/></a></div>
       </div>
       <figure className="personal-portrait"><img src="/Kaustubh.jpg" alt="Kaustubh" width="1368" height="1824" fetchPriority="high"/><figcaption><span>Kaustubh, in person.</span><span>Bengaluru ↗</span></figcaption></figure>
     </div>
@@ -77,7 +77,7 @@ function Interests() {
   return <section className="section interests" aria-labelledby="interest-heading">
     <div className="interest-intro"><Label>What keeps me interested</Label><h2 id="interest-heading">The model. The system.<br/>The person using it.</h2><p>My projects sit at different levels of the same problem. These are the questions that connect them.</p></div>
     <div className="interest-explorer">
-      <div className="interest-buttons" aria-label="Explore my interests">{interests.map((interest,i)=><button key={interest.name} aria-pressed={active===i} aria-controls="interest-detail" onClick={()=>setActive(i)}><span>0{i+1}</span>{interest.name}</button>)}</div>
+      <div className="interest-buttons" aria-label="Explore my interests">{interests.map((interest,i)=><button key={interest.name} aria-pressed={active===i} aria-controls="interest-detail" onClick={()=>setActive(i)}><Icon name={['research','cpu','nodes'][i]}/>{interest.name}</button>)}</div>
       <div className="interest-detail" id="interest-detail" aria-live="polite"><motion.div key={item.name} initial={{opacity:0}} animate={{opacity:1}} className="interest-body"><div><h3>{item.question}</h3><p>{item.copy}</p><a href={item.href}>{item.project} <Arrow/></a></div><InterestDrawing kind={item.kind}/></motion.div></div>
     </div>
   </section>;
@@ -86,21 +86,21 @@ function Interests() {
 function ProjectRows() {
   return <div className="project-list">{projects.map(p => <article className="project-row" key={p.id}>
     <span className="project-rank">{String(p.id).padStart(2,'0')}</span>
-    <div><Label>{p.category}</Label><h3>{p.name}</h3><p className="project-question">{p.question}</p><p>{p.description}</p><span className="project-tags">{p.tags}</span></div>
-    <a className="repo-link" href={p.url} target="_blank" rel="noopener noreferrer" aria-label={`View ${p.name} repository`}>Source <Arrow/></a>
+    <div><span className="project-category"><Icon name={p.category==='Research'?'research':p.category==='Systems'?'cpu':'nodes'}/><Label>{p.category}</Label></span><h3>{p.name}</h3><p className="project-question">{p.question}</p><p>{p.description}</p><span className="project-tags">{p.tags}</span></div>
+    <a className="repo-link" href={p.url} target="_blank" rel="noopener noreferrer" aria-label={`View ${p.name} repository`}><Icon name="github"/> Source <Arrow/></a>
   </article>)}</div>;
 }
 
 function Work() {
   return <section id="work" className="section work">
-    <div className="section-title"><h2>What I’ve built</h2><a className="text-link" href="https://github.com/snigenigmatic" target="_blank" rel="noopener noreferrer">GitHub <Arrow/></a></div>
+    <div className="section-title"><h2><Icon name="code"/> What I’ve built</h2><a className="text-link" href="https://github.com/snigenigmatic" target="_blank" rel="noopener noreferrer">GitHub <Arrow/></a></div>
     <ProjectRows/>
   </section>;
 }
 
 function Experience() {
   return <section id="experience" className="section experience">
-    <div className="section-title"><h2>Where I’ve worked</h2><span className="section-note">Research, industrial software, and venture.</span></div>
+    <div className="section-title"><h2><Icon name="work"/> Where I’ve worked</h2><span className="section-note">Research, industrial software, and venture.</span></div>
     <div className="experience-list">{profile.experience.map((e,i) => <article className="experience-row" key={e.company}>
       <span className="eyebrow row-number">{String(i+1).padStart(2,'0')}</span>
       <div><h3>{e.company}</h3><p className="muted">{e.role}</p></div>
@@ -110,46 +110,39 @@ function Experience() {
 }
 
 function Contributions() {
-  return <section className="section contributions"><div className="section-title"><h2>Code I contribute to</h2><span className="section-note">Fixes in projects I work with.</span></div>
+  return <section className="section contributions"><div className="section-title"><h2><Icon name="github"/> Code I contribute to</h2><span className="section-note">Fixes in projects I work with.</span></div>
     {profile.contributions.map(c => <article className="contribution-row" key={c.name}><h3>{c.name}</h3><p>{c.description}</p></article>)}
   </section>;
 }
 
 function Education() {
   const e = profile.education;
-  return <section id="education" className="section education"><h2>At PES University</h2>
-    <div className="education-row"><div><h3>{e.institution}</h3><p>{e.degree}</p><p className="muted">CGPA: {e.cgpa}</p></div><span className="date">{e.dates}</span></div><div className="campus-note"><Label>Outside the coursework</Label><p>I’m also Tech Lead at Shunya PESU, where I built and maintain the club website using React, TypeScript, and Tailwind.</p><a className="text-link" href="/about.html">More about me <Arrow/></a></div>
+  return <section id="education" className="section education"><h2><Icon name="school"/> At PES University</h2>
+    <div className="education-row"><div><h3>{e.institution}</h3><p>{e.degree}</p><p className="muted">CGPA: {e.cgpa}</p></div><span className="date">{e.dates}</span></div><div className="campus-note"><Label>Outside the coursework</Label><p>I’m also Tech Lead at Shunya PESU, where I built and maintain the club website using React, TypeScript, and Tailwind.</p><a className="text-link" href="/resume.html"><Icon name="file"/> Résumé <Arrow/></a></div>
   </section>;
 }
 
+function SocialLinks({rows=false}) {
+  return <div className={rows?'contact-directory':'social-links'}>{profile.socials.map(s=><a key={s.icon} href={s.url} target={s.icon==='mail'?undefined:'_blank'} rel={s.icon==='mail'?undefined:'noopener noreferrer'}><Icon name={s.icon}/><span>{s.label}{rows&&<small>{s.display}</small>}</span>{rows&&<Arrow/>}</a>)}</div>;
+}
+
 function Footer() {
-  return <><section className="contact-section" id="contact"><h2>Good to meet you.</h2><p className="contact-invite">If you’re working on something related, or want to compare notes, write to me.</p>
-    <div className="contact-bottom"><a href={email}>{profile.email} <Arrow/></a><span>{profile.location}</span></div>
-  </section><footer className="footer"><span>© {new Date().getFullYear()} C Kaustubh</span>
-    <div><a href="https://github.com/snigenigmatic" target="_blank" rel="noopener noreferrer">GitHub <Arrow/></a><a href="https://linkedin.com/in/c-kaustubh" target="_blank" rel="noopener noreferrer">LinkedIn <Arrow/></a><a href="/resume.html">Résumé <Arrow/></a></div>
-    <a className="back-top" href="#top" aria-label="Back to top">↑</a>
-  </footer></>;
-}
-
-function ProjectPage() {
-  return <main id="main" className="section inner-page"><h1>Projects</h1><p className="page-intro">Five projects in speech recognition, language models, and AI tools.</p><ProjectRows/></main>;
-}
-
-function AboutPage() {
-  return <main id="main" className="section inner-page about-page"><h1>About me</h1><p className="about-personal">I like problems where performance, correctness, and practical ML constraints meet. My work spans the model, the software that runs it, and the tools people use around it.</p><div className="prose"><React.Suspense fallback={<p>Loading…</p>}><AboutContent/></React.Suspense></div></main>;
+  const onContact=window.location.pathname.includes('contact');
+  return <>{!onContact&&<section className="contact-section" id="contact"><h2><Icon name="mail"/> Good to meet you.</h2><p className="contact-invite">If you’re working on something related, or want to compare notes, write to me.</p><a className="text-link" href="/contact.html">Contact <Arrow/></a></section>}<footer className="footer"><span>© {new Date().getFullYear()} Kaustubh</span><SocialLinks/><a className="back-top" href="#top" aria-label="Back to top"><Icon name="up"/></a></footer></>;
 }
 
 function ContactPage() {
-  return <main id="main" className="section inner-page contact-page"><h1>Contact</h1><p className="page-intro">{profile.location}</p><a className="button" href={email}>{profile.email} <Arrow/></a><div className="contact-links"><a href="https://github.com/snigenigmatic">GitHub <Arrow/></a><a href="https://linkedin.com/in/c-kaustubh">LinkedIn <Arrow/></a></div></main>;
+  return <main id="main" className="section inner-page compact-contact"><Label>Get in touch</Label><h1>Contact</h1><p className="page-intro">Email is the best way to reach me.</p><p className="contact-location"><Icon name="pin"/>{profile.location}</p><SocialLinks rows/></main>;
 }
 
 function ResumePage() {
-  return <main id="main" className="section inner-page"><h1>Résumé</h1><a className="button" href="/resume.pdf" target="_blank" rel="noopener noreferrer">Open PDF <Arrow/></a><a className="text-link resume-download" href="/resume.pdf" download="C-Kaustubh-Resume.pdf">Download ↓</a><object className="resume-viewer" data="/resume.pdf" type="application/pdf" aria-label="C Kaustubh résumé"><p><a href="/resume.pdf">Read the résumé PDF</a></p></object></main>;
+  return <main id="main" className="section inner-page"><h1>Résumé</h1><a className="button" href="/resume.pdf" target="_blank" rel="noopener noreferrer"><Icon name="file"/> Open PDF <Arrow/></a><a className="text-link resume-download" href="/resume.pdf" download="C-Kaustubh-Resume.pdf"><Icon name="down"/> Download</a><object className="resume-viewer" data="/resume.pdf" type="application/pdf" aria-label="C Kaustubh résumé"><p><a href="/resume.pdf">Read the résumé PDF</a></p></object></main>;
 }
 
 function App() {
   const path = window.location.pathname;
-  const page = path.includes('projects') ? <ProjectPage/> : path.includes('about') ? <AboutPage/> : path.includes('resume') ? <ResumePage/> : path.includes('contact') ? <ContactPage/> : <main id="main"><Hero/><Interests/><Work/><Experience/><Contributions/><Education/></main>;
+  useEffect(()=>{if(/\/(about|projects)(\.html)?\/?$/.test(path)) window.location.replace(path.includes('projects')?'/#work':'/');},[path]);
+  const page = path.includes('resume') ? <ResumePage/> : path.includes('contact') ? <ContactPage/> : <main id="main"><Hero/><Interests/><Work/><Experience/><Contributions/><Education/></main>;
   return <MotionConfig reducedMotion="user" transition={{duration:.18,ease:[.2,0,0,1]}}><a className="skip-link" href="#main">Skip to content</a><div id="top"/><Header/>{page}<Footer/></MotionConfig>;
 }
 createRoot(document.getElementById('root')).render(<App/>);
