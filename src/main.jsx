@@ -1,33 +1,118 @@
 import React, {useState, useEffect} from 'react';
 import {createRoot} from 'react-dom/client';
-import {motion, AnimatePresence, MotionConfig, useReducedMotion} from 'motion/react';
-const AboutContent = React.lazy(() => import('./AboutContent.jsx'));
-import {projects,featured} from './data';
+import {motion, AnimatePresence, MotionConfig} from 'motion/react';
+import {projects} from './data';
+import profile from '../content/profile.json';
 import './style.css';
 
-const Arrow=({diagonal=false})=><span aria-hidden="true">{diagonal?'↗':'↗'}</span>;
-const Strip=({children})=><span className="eyebrow">{children}</span>;
-function Reveal({children,className='',delay=0}){const reduced=useReducedMotion();return <motion.div className={className} initial={reduced?false:{opacity:0}} whileInView={{opacity:1,y:0}} viewport={{once:true,amount:.12}} transition={{duration:.18,ease:[.2,0,0,1]}}>{children}</motion.div>}
-function Mark(){return <svg viewBox="0 0 40 40" aria-hidden="true"><path d="M10 9v22M30 9 18 20l12 11M8 20h10" fill="none" stroke="currentColor" strokeWidth="3"/><circle cx="33" cy="7" r="3" fill="var(--orange)"/></svg>}
-function Header(){const [open,setOpen]=useState(false);useEffect(()=>{const close=e=>{if(e.key==='Escape')setOpen(false)};window.addEventListener('keydown',close);return()=>window.removeEventListener('keydown',close)},[]);return <header className="header"><a className="brand" href="/" aria-label="C Kaustubh home"><Mark/><span>C Kaustubh<span className="brand-dot">.</span></span></a><nav className="desktop-nav" aria-label="Main navigation"><a href="/projects.html">Selected work</a><a href="/about.html">About</a><a href="/resume.html">Résumé <Arrow/></a></nav><a className="header-contact" href="mailto:kaustubhc.1105@gmail.com">Let’s talk <Arrow/></a><button className="menu-toggle" aria-expanded={open} aria-controls="mobile-nav" onClick={()=>setOpen(!open)}>{open?'Close −':'Menu +'}</button><AnimatePresence>{open&&<motion.nav id="mobile-nav" className="mobile-nav" aria-label="Mobile navigation" initial={{opacity:0,y:-10}} animate={{opacity:1,y:0}} exit={{opacity:0,y:-10}}><a href="/projects.html">Selected work</a><a href="/about.html">About</a><a href="/resume.html">Résumé</a><a href="/contact.html">Contact</a></motion.nav>}</AnimatePresence></header>}
+const AboutContent = React.lazy(() => import('./AboutContent.jsx'));
+const Arrow = () => <span aria-hidden="true">↗</span>;
+const Label = ({children}) => <span className="eyebrow">{children}</span>;
+const email = `mailto:${profile.email}`;
 
-function Hero(){return <section className="hero" aria-labelledby="hero-title"><div className="hero-grid" aria-hidden="true"><div/><div/><div/><div/></div><div className="hero-top"><Strip><span className="status-dot"/> Bengaluru, India · CS @ PES University</Strip><span className="hero-index">PERSONAL PORTFOLIO / 2026</span></div><Reveal className="hero-copy"><p className="hello">Hi, I’m Kaustubh.</p><h1 id="hero-title">Good questions.<br/>Better <span className="serif">systems.</span><span className="orange period">*</span></h1><div className="hero-bottom"><p>I build at the intersection of machine learning<br className="desktop-break"/> and systems. From the kernel to the agent.</p><a className="button orange-button" href="#work">Explore my work <span>↓</span></a></div></Reveal><div className="hero-foot"><span><span className="tiny-dot"/> Currently building AI agents at AVEVA</span><span className="scroll-cue">SCROLL TO EXPLORE <span>↓</span></span></div></section>}
-function Work(){return <section id="work" className="section work"><Reveal className="section-top"><Strip>01 / Selected work</Strip><span className="muted">From first principles to working software.</span></Reveal><Reveal className="section-title"><h2>Ideas are good.<br/><span className="serif">Building is better.</span></h2><a className="text-link" href="/projects.html">All projects <Arrow/></a></Reveal><div className="featured-grid">{featured.map((p,i)=><Reveal key={p.name} delay={i*.08}><a className="feature-card" href={p.url} target="_blank" rel="noopener noreferrer"><div className="feature-art"><span className="project-number">0{i+1}</span><span className="project-arrow"><Arrow/></span></div><div className="feature-caption"><Strip>{p.category} / {['CUDA · C++','PYTHON · ML','LANGGRAPH · AGENTS'][i]}</Strip><h3>{p.name}</h3><p>{['A language model, down to the metal. A from-scratch inference engine for Qwen3-8B.','Teaching retrieval to know what it doesn’t know. Uncertainty-aware RAG on Mistral-7B.','Multi-agent compliance, built around a knowledge graph. Deployfest 2026 runner-up.'][i]}</p><div className="project-stat">{['~37 tok/s · RTX 4090','0.815 AUROC · INT4','1st runner-up · Deployfest 2026'][i]}<span>↗</span></div></div></a></Reveal>)}</div><p className="metric-note">Project results reported in my repositories; hardware and evaluation settings apply.</p></section>}
-function AboutSection(){return <section className="section about-section" id="about"><div className="about-left"><Strip>02 / A little context</Strip><Reveal><h2>Curiosity is<br/>the <span className="serif">constant.</span></h2><p className="large-copy">I like understanding what’s underneath. The model. The memory. The system that makes it all work.</p><p className="muted about-copy">I’m a Computer Science undergraduate at PES University in Bengaluru. My work moves between production AI agents, low-level systems, and applied ML research. The common thread: build it, measure it, understand its limits.</p><a className="text-link" href="/about.html">More about me <Arrow/></a></Reveal><div className="tool-list"><span>RUST</span><span>C++ / CUDA</span><span>GO</span><span>PYTHON</span><span>PYTORCH</span></div></div><Reveal className="portrait-wrap"><img src="/Kaustubh.jpg" alt="C Kaustubh" loading="lazy" width="800" height="1000"/><div className="portrait-footer"><span>C KAUSTUBH</span><span>12.97° N · 77.59° E</span></div></Reveal></section>}
-const experience=[['01','AVEVA','AIML Intern','Jun 2026 — Present','Production LLM agents for industrial software. Turning natural language into validated KPI calculations.'],['02','C-ISFCR','Research Intern','Jun — Jul 2025','Multimodal architectures for unsupervised video anomaly detection. Research under Prof. Preet Kanwal.'],['03','PES University','Teaching Assistant','Jan 2026 — Present','Big Data and Microprocessors & Computer Architecture. Course material and project evaluation for 700+ students.']];
-function Experience(){return <section className="section experience"><Reveal className="section-top"><Strip>03 / Along the way</Strip><span className="muted">Learning by doing. And doing a little more.</span></Reveal><Reveal><h2>Where I’ve been<br/><span className="serif">putting it to work.</span></h2></Reveal><div className="experience-list">{experience.map(([n,company,role,date,copy])=><Reveal className="experience-row" key={n}><span className="eyebrow row-number">{n}</span><div><h3>{company}</h3><p className="muted">{role}</p></div><p className="experience-copy">{copy}</p><span className="eyebrow date">{date}</span></Reveal>)}</div><div className="recognition"><Strip>Out in the world</Strip><span>Agentathon ’26 <b>Winner ↗</b></span><span>Google DeepMind Hackathon <b>Top 6 finalist ↗</b></span><span>Deployfest 2026 <b>1st runner-up ↗</b></span></div></section>}
-function Footer(){return <><section className="contact-section" id="contact"><Strip>Have a hard problem? An interesting idea?</Strip><a className="contact-title" href="mailto:kaustubhc.1105@gmail.com">Let’s build<br/><span className="serif">something good.</span><span className="contact-arrow">↗</span></a><div className="contact-bottom"><a href="mailto:kaustubhc.1105@gmail.com">kaustubhc.1105@gmail.com <Arrow/></a><span>Bengaluru, India · Open to conversations</span></div></section><footer className="footer"><a className="brand" href="/"><Mark/><span>C Kaustubh.</span></a><span>© {new Date().getFullYear()} · Built with curiosity.</span><div><a href="https://github.com/snigenigmatic" target="_blank" rel="noopener noreferrer">GitHub <Arrow/></a><a href="https://linkedin.com/in/c-kaustubh" target="_blank" rel="noopener noreferrer">LinkedIn <Arrow/></a><a href="/resume.html">Résumé <Arrow/></a></div><a className="back-top" href="#top" aria-label="Back to top">↑</a></footer></>}
-function ProjectPage(){
-  const [filter,setFilter]=useState('All');
-  const [query,setQuery]=useState('');
-  const filtered=projects.filter(p=>(filter==='All'||p.category===filter)&&`${p.name} ${p.description} ${p.tags}`.toLowerCase().includes(query.toLowerCase()));
-  return <main id="main"><section className="section inner-page"><Strip>The work / 2026</Strip><Reveal><h1>Built to <span className="serif">find out.</span></h1><p className="page-intro">Systems, experiments, and a few good rabbit holes. Every project starts with a question. Here’s where some of mine led.</p></Reveal>
-    <div className="directory-layout"><div><div className="column-labels"><span>Index</span><span>Project / context</span><span>Source</span></div><p className="sr-only" role="status">Showing {filtered.length} projects</p><motion.div className="project-list" layout>{filtered.map(p=><motion.article className="project-row" layout key={p.name} initial={{opacity:0}} animate={{opacity:1}}><span className="project-rank">{String(p.id).padStart(2,'0')}</span><div><Strip>{p.category}</Strip><h2><a href={p.url} target="_blank" rel="noopener noreferrer">{p.name} <Arrow/></a></h2><p>{p.description}</p><span className="project-tags">{p.tags}</span></div><a className="repo-link" href={p.url} target="_blank" rel="noopener noreferrer" aria-label={`View ${p.name} repository`}>View source <Arrow/></a></motion.article>)}</motion.div>{filtered.length===0&&<p className="empty-state">No projects match. Try a different keyword or category.</p>}</div>
-    <aside className="filter-rail"><details open><summary>Filter projects <span>{filtered.length} / {projects.length}</span></summary><label className="facet-label" htmlFor="project-search">Search</label><input id="project-search" type="search" placeholder="Name, tool, or keyword" value={query} onChange={e=>setQuery(e.target.value)}/><span className="facet-label">Discipline</span><div className="filters" aria-label="Filter projects">{['All','Systems','Research','Applied AI'].map(f=><button key={f} aria-pressed={filter===f} onClick={()=>setFilter(f)}>{f} <span>{f==='All'?projects.length:projects.filter(p=>p.category===f).length}</span></button>)}</div><button className="reset-button" onClick={()=>{setFilter('All');setQuery('')}}>Clear filters</button><p className="rail-note">A directory of working software and research. Every project links to its source.</p></details></aside></div></section></main>
+function Mark() {
+  return <svg viewBox="0 0 40 40" aria-hidden="true"><path d="M10 9v22M30 9 18 20l12 11M8 20h10" fill="none" stroke="currentColor" strokeWidth="3"/><circle cx="33" cy="7" r="3" fill="var(--orange)"/></svg>;
 }
-function AboutPage(){return <main id="main" className="section inner-page about-page"><Strip>The person behind the work</Strip><div className="about-page-top"><Reveal><h1>Always a <span className="serif">student.</span></h1><p className="page-intro">Of systems. Of intelligence.<br/>Of things I haven’t figured out yet.</p></Reveal><img src="/Kaustubh.jpg" alt="C Kaustubh" width="300" height="360"/></div><div className="prose"><React.Suspense fallback={<p>Loading about…</p>}><AboutContent/></React.Suspense></div></main>}
-function ContactPage(){return <main id="main" className="section inner-page contact-page"><Strip>Start a conversation</Strip><h1>Good work starts<br/>with <span className="serif">a hello.</span></h1><p className="page-intro">For ML, systems, backend engineering, or an idea worth exploring.<br/>Email is the best way to reach me.</p><a className="button orange-button" href="mailto:kaustubhc.1105@gmail.com">Say hello <Arrow/></a><div className="contact-links"><a href="https://github.com/snigenigmatic">GitHub ↗</a><a href="https://linkedin.com/in/c-kaustubh">LinkedIn ↗</a><a href="/resume.pdf">Download résumé ↗</a></div></main>}
-function ResumePage(){return <main id="main" className="section inner-page"><Strip>Experience, on paper</Strip><h1>The <span className="serif">résumé.</span></h1><p className="page-intro">A closer look at my experience, research, and systems work.</p><a className="button orange-button" href="/resume.pdf" target="_blank" rel="noopener noreferrer">Open résumé PDF <Arrow/></a><a className="text-link resume-download" href="/resume.pdf" download="C-Kaustubh-Resume.pdf">Download a copy ↓</a><object className="resume-viewer" data="/resume.pdf" type="application/pdf" aria-label="C Kaustubh résumé"><p><a href="/resume.pdf">Read the résumé PDF</a></p></object></main>}
-function App(){const path=window.location.pathname;const page=path.includes('projects')?'projects':path.includes('about')?'about':path.includes('resume')?'resume':path.includes('contact')?'contact':'home';return <MotionConfig reducedMotion="user" transition={{duration:.18,ease:[.2,0,0,1]}}><a className="skip-link" href="#main">Skip to content</a><div id="top"/><Header/>{page==='home'?<main id="main"><Hero/><Work/><AboutSection/><Experience/></main>:page==='projects'?<ProjectPage/>:page==='about'?<AboutPage/>:page==='resume'?<ResumePage/>:<ContactPage/>}<Footer/></MotionConfig>}
 
+function Header() {
+  const [open, setOpen] = useState(false);
+  useEffect(() => {
+    const close = e => { if (e.key === 'Escape') setOpen(false); };
+    window.addEventListener('keydown', close);
+    return () => window.removeEventListener('keydown', close);
+  }, []);
+  return <header className="header">
+    <a className="brand" href="/" aria-label="C Kaustubh home"><Mark/><span>C Kaustubh</span></a>
+    <nav className="desktop-nav" aria-label="Main navigation">
+      <a href="/projects.html">Projects</a><a href="/about.html">About</a><a href="/resume.html">Résumé <Arrow/></a>
+    </nav>
+    <a className="header-contact" href={email}>Email <Arrow/></a>
+    <button className="menu-toggle" aria-expanded={open} aria-controls="mobile-nav" onClick={() => setOpen(!open)}>{open ? 'Close −' : 'Menu +'}</button>
+    <AnimatePresence>{open && <motion.nav id="mobile-nav" className="mobile-nav" aria-label="Mobile navigation" initial={{opacity:0}} animate={{opacity:1}} exit={{opacity:0}}>
+      <a href="/projects.html">Projects</a><a href="/about.html">About</a><a href="/resume.html">Résumé</a><a href="/contact.html">Contact</a>
+    </motion.nav>}</AnimatePresence>
+  </header>;
+}
+
+function Hero() {
+  return <section className="hero" aria-labelledby="hero-title">
+    <div className="hero-top"><Label>{profile.location}</Label></div>
+    <div className="hero-copy">
+      <h1 id="hero-title">C Kaustubh</h1>
+      <p className="page-intro">Computer Science student at PES University.<br/>AI Intern at Together Fund.</p>
+      <p className="hero-summary">I build AI products, work on speech recognition research, and write systems software.</p>
+      <div className="contact-links"><a href="#work">Projects ↓</a><a href="/resume.pdf" target="_blank" rel="noopener noreferrer">Résumé <Arrow/></a></div>
+    </div>
+  </section>;
+}
+
+function ProjectRows() {
+  return <div className="project-list">{projects.map(p => <article className="project-row" key={p.id}>
+    <span className="project-rank">{String(p.id).padStart(2,'0')}</span>
+    <div><Label>{p.category}</Label><h3>{p.name}</h3><p>{p.description}</p><span className="project-tags">{p.tags}</span></div>
+    <a className="repo-link" href={p.url} target="_blank" rel="noopener noreferrer" aria-label={`View ${p.name} repository`}>Source <Arrow/></a>
+  </article>)}</div>;
+}
+
+function Work() {
+  return <section id="work" className="section work">
+    <div className="section-title"><h2>Projects</h2><a className="text-link" href="https://github.com/snigenigmatic" target="_blank" rel="noopener noreferrer">GitHub <Arrow/></a></div>
+    <ProjectRows/>
+  </section>;
+}
+
+function Experience() {
+  return <section className="section experience">
+    <h2>Experience</h2>
+    <div className="experience-list">{profile.experience.map((e,i) => <article className="experience-row" key={e.company}>
+      <span className="eyebrow row-number">{String(i+1).padStart(2,'0')}</span>
+      <div><h3>{e.company}</h3><p className="muted">{e.role}</p></div>
+      <p className="experience-copy">{e.description}</p><span className="date">{e.dates}</span>
+    </article>)}</div>
+  </section>;
+}
+
+function Contributions() {
+  return <section className="section contributions"><h2>Open source</h2>
+    {profile.contributions.map(c => <article className="contribution-row" key={c.name}><h3>{c.name}</h3><p>{c.description}</p></article>)}
+  </section>;
+}
+
+function Education() {
+  const e = profile.education;
+  return <section className="section education"><h2>Education</h2>
+    <div className="education-row"><div><h3>{e.institution}</h3><p>{e.degree}</p><p className="muted">CGPA: {e.cgpa}</p></div><span className="date">{e.dates}</span></div>
+  </section>;
+}
+
+function Footer() {
+  return <><section className="contact-section" id="contact"><h2>Contact</h2>
+    <div className="contact-bottom"><a href={email}>{profile.email} <Arrow/></a><span>{profile.location}</span></div>
+  </section><footer className="footer"><span>© {new Date().getFullYear()} C Kaustubh</span>
+    <div><a href="https://github.com/snigenigmatic" target="_blank" rel="noopener noreferrer">GitHub <Arrow/></a><a href="https://linkedin.com/in/c-kaustubh" target="_blank" rel="noopener noreferrer">LinkedIn <Arrow/></a><a href="/resume.html">Résumé <Arrow/></a></div>
+    <a className="back-top" href="#top" aria-label="Back to top">↑</a>
+  </footer></>;
+}
+
+function ProjectPage() {
+  return <main id="main" className="section inner-page"><h1>Projects</h1><p className="page-intro">Five projects in speech recognition, language models, and AI tools.</p><ProjectRows/></main>;
+}
+
+function AboutPage() {
+  return <main id="main" className="section inner-page about-page"><h1>About</h1><div className="prose"><React.Suspense fallback={<p>Loading…</p>}><AboutContent/></React.Suspense></div></main>;
+}
+
+function ContactPage() {
+  return <main id="main" className="section inner-page contact-page"><h1>Contact</h1><p className="page-intro">{profile.location}</p><a className="button" href={email}>{profile.email} <Arrow/></a><div className="contact-links"><a href="https://github.com/snigenigmatic">GitHub <Arrow/></a><a href="https://linkedin.com/in/c-kaustubh">LinkedIn <Arrow/></a></div></main>;
+}
+
+function ResumePage() {
+  return <main id="main" className="section inner-page"><h1>Résumé</h1><a className="button" href="/resume.pdf" target="_blank" rel="noopener noreferrer">Open PDF <Arrow/></a><a className="text-link resume-download" href="/resume.pdf" download="C-Kaustubh-Resume.pdf">Download ↓</a><object className="resume-viewer" data="/resume.pdf" type="application/pdf" aria-label="C Kaustubh résumé"><p><a href="/resume.pdf">Read the résumé PDF</a></p></object></main>;
+}
+
+function App() {
+  const path = window.location.pathname;
+  const page = path.includes('projects') ? <ProjectPage/> : path.includes('about') ? <AboutPage/> : path.includes('resume') ? <ResumePage/> : path.includes('contact') ? <ContactPage/> : <main id="main"><Hero/><Experience/><Work/><Contributions/><Education/></main>;
+  return <MotionConfig reducedMotion="user" transition={{duration:.18,ease:[.2,0,0,1]}}><a className="skip-link" href="#main">Skip to content</a><div id="top"/><Header/>{page}<Footer/></MotionConfig>;
+}
 createRoot(document.getElementById('root')).render(<App/>);

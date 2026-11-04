@@ -1,7 +1,7 @@
 import { readFile, writeFile, mkdir, copyFile } from 'node:fs/promises';
 const html = await readFile('dist/index.html', 'utf8');
 for (const page of ['about','projects','contact','resume']) {
-  await writeFile(`dist/${page}.html`, html.replace('<title>C Kaustubh — Systems & Intelligence</title>', `<title>${page[0].toUpperCase()+page.slice(1)} — C Kaustubh</title>`));
+  await writeFile(`dist/${page}.html`, html.replace('<title>C Kaustubh</title>', `<title>${page[0].toUpperCase()+page.slice(1)} — C Kaustubh</title>`));
 }
 // Keep existing resume and portrait URLs valid after the rebuild.
 await mkdir('dist/static', {recursive:true});

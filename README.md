@@ -1,6 +1,6 @@
 # C Kaustubh — portfolio
 
-A responsive React + Vite portfolio with Motion for React (formerly Framer Motion). Original content remains in `content/`; the project directory is parsed from `content/projects.md` and the About page renders `content/about.md`.
+React + Vite portfolio. White background, aubergine text, coral accents, Google Sans, and hairline-separated rows.
 
 ```sh
 npm ci
@@ -9,8 +9,15 @@ npm run build
 npm run preview
 ```
 
-Netlify runs `npm run build` and publishes `dist/`. The build emits the existing `/about.html`, `/projects.html`, `/contact.html`, and `/resume.html` routes, and preserves old `/static/resume.pdf` and portrait links. Replace `static/resume.pdf` to update the résumé.
+## Content
 
-Design: white, aubergine (#180a2b), restrained coral (#fb5b51), readable red (#c6372d), Google Sans and Google Sans Mono, hairline-separated lists, and outlined pill controls. The project directory includes keyword search and a collapsible filter rail. All transitions use a 180ms ease curve. Motion respects the visitor’s reduced-motion setting. Project filters, mobile navigation, source links, and PDF downloads are keyboard accessible. No backend or API keys required.
+- `content/profile.json`: current role, experience, education, and open source contributions.
+- `content/projects.md`: five selected projects, parsed by `src/data.js` and shared by the home and Projects pages.
+- `content/about.md`: About page.
+- `static/resume.pdf`: current résumé. Replaced with the user-supplied résumé on 4 November 2026.
 
-`rendered/` and `layout/` are retained as the previous Anna implementation for reference; they are no longer the published build. `.openai/hosting.json` configures the private review deployment; Netlify is configured independently in `netlify.toml`.
+The site lists ASR fairness, UncertaRAG, Qwen CUDA, Rakshak-AI, and LocalLens. Dates and experience are based on the supplied résumé. Project descriptions omit performance comparisons without enough evaluation context.
+
+Netlify runs `npm run build` and publishes `dist/`. The build emits the existing `/about.html`, `/projects.html`, `/contact.html`, and `/resume.html` routes. `/static/resume.pdf` remains valid. Navigation uses Motion for React with 180ms transitions and reduced-motion support.
+
+`rendered/` and `layout/` retain the previous Anna implementation and are not published. `.openai/hosting.json` configures the private review deployment; `netlify.toml` configures Netlify.

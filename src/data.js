@@ -7,4 +7,3 @@ export const projects = [...projectSource.matchAll(/<article class="project-card
   const category = /CUDA|Distributed|RESP3|C\+\+|Rust/.test(tags) ? 'Systems' : /Research|Federated/.test(tags) || name === 'MediChain-FL' ? 'Research' : 'Applied AI';
   return {name,url,description,tags,category,id:i+1};
 });
-export const featured = ['qwen_cuda','UncertaRAG','Rakshak-AI'].map(n => projects.find(p=>p.name===n));
