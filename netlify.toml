@@ -1,6 +1,10 @@
 [build]
   command = "npm run build"
   publish = "dist"
+  # Skip the deploy when a push only changes files that aren't part of the site.
+  # Netlify skips the build when this command exits 0. If there's no cached commit
+  # (first build), the test fails and the build runs.
+  ignore = "test -n \"$CACHED_COMMIT_REF\" && git diff --quiet \"$CACHED_COMMIT_REF\" \"$COMMIT_REF\" -- . ':(exclude)docs' ':(exclude)README.md' ':(exclude)test' ':(exclude)content/writing/_template.md'"
 
 [build.environment]
   NODE_VERSION = "22"
@@ -9,3 +13,8 @@
   for = "/assets/*"
   [headers.values]
     Cache-Control = "public, max-age=31536000, immutable"
+
+[[headers]]
+  for = "/writing/*/post.json"
+  [headers.values]
+    Cache-Control = "public, max-age=0, must-revalidate"

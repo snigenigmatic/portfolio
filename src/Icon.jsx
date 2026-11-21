@@ -1,5 +1,10 @@
 import React from 'react';
 const shapes = {
+  pen: <><path d="M4 20h4L19 9l-4-4L4 16Z"/><path d="m13 7 4 4M13 20h7"/></>,
+  rss: <><path d="M5 5a14 14 0 0 1 14 14M5 11a8 8 0 0 1 8 8"/><circle cx="6" cy="18" r="1.5"/></>,
+  copy: <><rect x="8" y="8" width="12" height="12" rx="2"/><path d="M16 8V5a1 1 0 0 0-1-1H5a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h3"/></>,
+  check: <><path d="m5 12 5 5 9-10"/></>,
+  left: <><path d="M20 12H4m6-6-6 6 6 6"/></>,
   mail: <><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 6 9 7 9-7"/></>,
   arrow: <><path d="M7 17 17 7M7 7h10v10"/></>,
   down: <><path d="M12 4v16m-6-6 6 6 6-6"/></>,
