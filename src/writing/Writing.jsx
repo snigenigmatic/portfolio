@@ -122,11 +122,11 @@ export function PostView({post, newer, older, projectHref}) {
         {post.updated && <p className="eyebrow post-updated">Updated <time dateTime={post.updated}>{formatDate(post.updated)}</time></p>}
       </header>
       <div className="post-body" ref={body} dangerouslySetInnerHTML={{__html: post.html}}/>
-      <footer className="post-footer">
+      {((technical && post.tags.length > 0) || projectHref || post.replies) && <footer className="post-footer">
         {technical && post.tags.length > 0 && <p className="eyebrow post-tags">{post.tags.join(' · ')}</p>}
         {projectHref && <a className="text-link" href={projectHref}><Icon name="code"/> Related project <Arrow/></a>}
         {post.replies && <a className="text-link" href={`${email}?subject=${replySubject}`}><Icon name="mail"/> Reply by email <Arrow/></a>}
-      </footer>
+      </footer>}
     </article>
     {(newer || older) && <nav className="post-nav" aria-label={`More ${technical ? 'technical' : 'personal'} writing`}>
       {older ? <a href={`/writing/${older.slug}/`} data-prefetch={older.slug}><Label>Previous</Label><span>{older.title}</span></a> : <span/>}
