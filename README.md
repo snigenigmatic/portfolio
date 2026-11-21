@@ -74,4 +74,3 @@ Moderate comments in GitHub Discussions.
 - `scripts/vite-writing.mjs` exposes public post metadata to the app as `virtual:writing`. In dev, it also serves post bodies and images.
 - `src/prerender.jsx` is built with `vite build --ssr`. `scripts/pages.mjs` uses it to write each post's own `index.html`, with its own title, description, canonical and Open Graph tags and the article already in the HTML. It also writes `post.json`, `feed.xml`, `technical.xml` and the sitemap entries.
 - The client loads post bodies from `post.json` on navigation and caches them, so Back and Forward restore the scroll position.
-- `netlify.toml` skips deploys for pushes that only touch `docs/`, `README.md`, `test/` or the post template.

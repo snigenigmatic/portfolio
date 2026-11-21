@@ -3,6 +3,7 @@
 Status: **Phases 1 and 2 built** (22 Nov 2026). Phase 3 is not started. Items marked ❓ are still open.
 
 Built as planned, with these notes:
+- **The `ignore` rule was removed (21 Nov 2026).** Netlify compares a production build against the last commit it built, which can be the PR's own deploy preview. A GitHub merge commit has the same files as that PR head, so the rule saw "no change" and cancelled the production deploy of PRs #4 and #5. Every push to `main` now deploys.
 - The section can merge with **zero posts**. The Writing nav link and the homepage section appear when the first post goes public; `/writing/` itself shows a short empty state.
 - Giscus is wired up, but comments stay hidden until the repo and category IDs are added to `src/writing/config.js` (see README).
 - Post bodies load from static `/writing/<slug>/post.json` files rather than JS chunks. This keeps unlisted posts out of the JS bundle entirely.
