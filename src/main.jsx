@@ -1,45 +1,15 @@
 import React, {useState, useEffect, useLayoutEffect} from 'react';
 import {createRoot} from 'react-dom/client';
 import {motion, AnimatePresence, MotionConfig, useReducedMotion} from 'motion/react';
-import {projects} from './data';
+import {projects, projectKey, projectForPost} from './data';
 import profile from '../content/profile.json';
 import './style.css';
 
 import Icon from './Icon';
 import {useNavigation} from './navigation';
-const Arrow = () => <Icon name="arrow"/>;
-const Label = ({children}) => <span className="eyebrow">{children}</span>;
-const email = `mailto:${profile.email}`;
-
-function Mark() {
-  return <svg viewBox="0 0 40 40" aria-hidden="true" className="personal-mark">
-    <path d="M5 7a3 3 0 0 1 3-3h5v32H8a3 3 0 0 1-3-3Z" fill="currentColor"/>
-    <path d="m16 19 12-15h9L23 21Z" fill="currentColor"/>
-    <path d="m16 21 7-2 14 17h-9Z" fill="currentColor"/>
-    <path d="m28 4 5-3 6 6-5 6Z" fill="var(--orange)"/>
-  </svg>;
-}
-
-function Header({path}) {
-  const [open, setOpen] = useState(false);
-  useEffect(() => {
-    const close = e => { if (e.key === 'Escape') setOpen(false); };
-    window.addEventListener('keydown', close);
-    return () => window.removeEventListener('keydown', close);
-  }, []);
-  useEffect(() => setOpen(false), [path]);
-  return <header className="header" onClick={e=>{if(e.target.closest('a'))setOpen(false)}}>
-    <a className="brand" href="/" aria-label="Kaustubh home"><Mark/><span>Kaustubh</span></a>
-    <nav className="desktop-nav" aria-label="Main navigation">
-      <a href="/" aria-current={path==='/'?'page':undefined}><Icon name="home"/> Home</a><a href="/contact.html" aria-current={path==='/contact.html'?'page':undefined}><Icon name="mail"/> Contact</a><a href="/resume.html" aria-current={path==='/resume.html'?'page':undefined}><Icon name="file"/> Résumé</a>
-    </nav>
-    <a className="header-contact" href={email}><Icon name="mail"/> Email <Arrow/></a>
-    <button className="menu-toggle" aria-expanded={open} aria-controls="mobile-nav" onClick={() => setOpen(!open)}>{open ? 'Close −' : 'Menu +'}</button>
-    <AnimatePresence>{open && <motion.nav id="mobile-nav" className="mobile-nav" aria-label="Mobile navigation" initial={{opacity:0}} animate={{opacity:1}} exit={{opacity:0}}>
-      <a href="/" aria-current={path==='/'?'page':undefined}><Icon name="home"/> Home</a><a href="/resume.html" aria-current={path==='/resume.html'?'page':undefined}><Icon name="file"/> Résumé</a><a href="/contact.html" aria-current={path==='/contact.html'?'page':undefined}><Icon name="mail"/> Contact</a>
-    </motion.nav>}</AnimatePresence>
-  </header>;
-}
+import {Arrow, Label, Header, Footer, SocialLinks, isPostPath} from './layout';
+import {WritingIndex, PostView, NotFound, RecentWriting} from './writing/Writing';
+import {posts, usePost, installPrefetch} from './writing/client';
 
 function Hero() {
   return <section className="hero personal-hero" aria-labelledby="hero-title">
@@ -86,9 +56,9 @@ function Interests() {
 }
 
 function ProjectRows() {
-  return <div className="project-list">{projects.map(p => <article className="project-row" key={p.id}>
+  return <div className="project-list">{projects.map(p => <article className="project-row" key={p.id} id={`project-${projectKey(p)}`}>
     <span className="project-rank">{String(p.id).padStart(2,'0')}</span>
-    <div><span className="project-category"><Icon name={p.category==='Research'?'research':p.category==='Systems'?'cpu':'nodes'}/><Label>{p.category}</Label></span><h3>{p.name}</h3><p className="project-question">{p.question}</p><p>{p.description}</p><span className="project-tags">{p.tags}</span></div>
+    <div><span className="project-category"><Icon name={p.category==='Research'?'research':p.category==='Systems'?'cpu':'nodes'}/><Label>{p.category}</Label></span><h3>{p.name}</h3><p className="project-question">{p.question}</p><p>{p.description}</p><span className="project-tags">{p.tags}</span>{(()=>{const post=posts.find(w=>w.project&&projectForPost(w)===p);return post&&<a className="project-writing-link" href={`/writing/${post.slug}/`} data-prefetch={post.slug}><Icon name="pen"/> Read more <Arrow/></a>;})()}</div>
     <a className="repo-link" href={p.url} target="_blank" rel="noopener noreferrer" aria-label={`View ${p.name} repository`}><Icon name="github"/> Source <Arrow/></a>
   </article>)}</div>;
 }
@@ -122,15 +92,6 @@ function Education() {
   return <section id="education" className="section education"><h2><Icon name="school"/> At PES University</h2>
     <div className="education-row"><div><h3>{e.institution}</h3><p>{e.degree}</p><p className="muted">CGPA: {e.cgpa}</p></div><span className="date">{e.dates}</span></div><div className="campus-note"><Label>Outside the coursework</Label><p>I’m also Tech Lead at Shunya PESU, where I built and maintain the club website using React, TypeScript, and Tailwind.</p><a className="text-link" href="/resume.html"><Icon name="file"/> Résumé <Arrow/></a></div>
   </section>;
-}
-
-function SocialLinks({rows=false}) {
-  return <div className={rows?'contact-directory':'social-links'}>{profile.socials.map(s=><a key={s.icon} href={s.url} target={s.icon==='mail'?undefined:'_blank'} rel={s.icon==='mail'?undefined:'noopener noreferrer'}><Icon name={s.icon}/><span>{s.label}{rows&&<small>{s.display}</small>}</span>{rows&&<Arrow/>}</a>)}</div>;
-}
-
-function Footer({path}) {
-  const onContact=path.includes('contact');
-  return <>{!onContact&&<section className="contact-section" id="contact"><h2><Icon name="mail"/> Good to meet you.</h2><p className="contact-invite">If you’re working on something related, or want to compare notes, write to me.</p><a className="text-link" href="/contact.html">Contact <Arrow/></a></section>}<footer className="footer"><span>© {new Date().getFullYear()} Kaustubh</span><SocialLinks/><a className="back-top" href="#top" aria-label="Back to top"><Icon name="up"/></a></footer></>;
 }
 
 function ContactPage() {
@@ -169,19 +130,43 @@ function ResumePage() {
   </main>;
 }
 
+const defaultDescription=document.querySelector('meta[name="description"]')?.content||'';
+function setDescription(text){document.querySelector('meta[name="description"]')?.setAttribute('content',text||defaultDescription);}
+
+function PostPage({slug}) {
+  const {status,data}=usePost(slug);
+  useEffect(()=>{
+    if(status==='ready'){document.title=`${data.title} — Kaustubh`;setDescription(data.summary);}
+    if(status==='missing'){document.title='Post not found — Kaustubh';}
+  },[status,data]);
+  useEffect(()=>{
+    // Content arrives after navigation completes; honour a #section in the URL once it exists.
+    if(status!=='ready'||!window.location.hash)return;
+    try{document.getElementById(decodeURIComponent(window.location.hash.slice(1)))?.scrollIntoView({block:'start'});}catch{/* ignore malformed hashes */}
+  },[status]);
+  if(status==='missing')return <NotFound/>;
+  if(status==='loading')return <main id="main" className="section inner-page post" aria-busy="true"><p className="pdf-status" role="status"><span className="loading-spinner" aria-hidden="true"/>Loading…</p></main>;
+  const project=projectForPost(data);
+  return <PostView post={data} newer={data.newer} older={data.older} projectHref={project&&`/#project-${projectKey(project)}`}/>;
+}
+
 function RouteContent({route,complete}) {
   const reduced=useReducedMotion();
   useLayoutEffect(()=>{
     complete(route,reduced);
-    const names={'/contact.html':'Contact — Kaustubh','/resume.html':'Résumé — Kaustubh'};
-    document.title=names[route.path]||'Kaustubh';
+    const names={'/contact.html':'Contact — Kaustubh','/resume.html':'Résumé — Kaustubh','/writing/':'Writing — Kaustubh'};
+    if(!isPostPath(route.path)){document.title=names[route.path]||'Kaustubh';setDescription(route.path==='/writing/'?'Writing by Kaustubh: technical posts and personal ones.':null);}
   },[route,reduced]);
-  const page=route.path==='/resume.html'?<ResumePage/>:route.path==='/contact.html'?<ContactPage/>:<main id="main"><Hero/><Interests/><Work/><Experience/><Contributions/><Education/></main>;
+  const post=route.path.match(/^\/writing\/([a-z0-9-]+)\/$/);
+  const page=route.path==='/resume.html'?<ResumePage/>:route.path==='/contact.html'?<ContactPage/>:route.path==='/writing/'?<WritingIndex posts={posts} initialTrack={new URLSearchParams(window.location.search).get('track')}/>:post?<PostPage slug={post[1]}/>:<main id="main"><Hero/><Interests/><Work/><RecentWriting posts={posts}/><Experience/><Contributions/><Education/></main>;
   return <motion.div className="route-view" initial={reduced?false:{opacity:0}} animate={{opacity:1}} exit={reduced?undefined:{opacity:0}} transition={{duration:reduced?0:.09,ease:[.2,0,0,1]}}>{page}<Footer path={route.path}/></motion.div>;
 }
 
 function App() {
   const {route,complete}=useNavigation();
-  return <MotionConfig reducedMotion="user" transition={{duration:.18,ease:[.2,0,0,1]}}><a className="skip-link" href="#main">Skip to content</a><div id="top"/><Header path={route.path}/><AnimatePresence mode="wait" initial={false}><RouteContent key={route.path} route={route} complete={complete}/></AnimatePresence></MotionConfig>;
+  return <MotionConfig reducedMotion="user" transition={{duration:.18,ease:[.2,0,0,1]}}><a className="skip-link" href="#main">Skip to content</a><div id="top"/><Header path={route.path} showWriting={posts.length>0}/><AnimatePresence mode="wait" initial={false}><RouteContent key={route.path} route={route} complete={complete}/></AnimatePresence></MotionConfig>;
 }
-createRoot(document.getElementById('root')).render(<App/>);
+installPrefetch();
+const root=document.getElementById('root');
+root.replaceChildren();
+createRoot(root).render(<App/>);

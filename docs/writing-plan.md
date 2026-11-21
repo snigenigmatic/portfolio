@@ -1,6 +1,12 @@
 # Plan: a writing section at `/writing`
 
-Status: **proposal, revised 21 Nov 2026**. Nothing is built yet. Items marked ❓ are still open.
+Status: **Phases 1 and 2 built** (22 Nov 2026). Phase 3 is not started. Items marked ❓ are still open.
+
+Built as planned, with these notes:
+- The section can merge with **zero posts**. The Writing nav link and the homepage section appear when the first post goes public; `/writing/` itself shows a short empty state.
+- Giscus is wired up, but comments stay hidden until the repo and category IDs are added to `src/writing/config.js` (see README).
+- Post bodies load from static `/writing/<slug>/post.json` files rather than JS chunks. This keeps unlisted posts out of the JS bundle entirely.
+- The list page eyebrow reads “Technical & personal”, and the intro line is the one proposed below.
 
 Changes from the first draft (`/notes`):
 - Renamed to **`/writing`**, since posts are both technical and personal.

@@ -2,6 +2,8 @@ import {useEffect, useRef, useState} from 'react';
 
 const storageKey = 'kaustubh-scroll-positions';
 const supported = new Set(['/', '/index.html', '/contact', '/contact.html', '/resume', '/resume.html', '/about', '/about.html', '/projects', '/projects.html']);
+const writingPath = /^\/writing(?:\.html|\/(?:[a-z0-9-]+\/?)?)?$/;
+export const isSupported = pathname => supported.has(pathname) || writingPath.test(pathname);
 const newKey = () => globalThis.crypto?.randomUUID?.() || `${Date.now()}-${Math.random()}`;
 
 export function canonicalURL(input) {
@@ -10,6 +12,8 @@ export function canonicalURL(input) {
   if (/^\/projects(?:\.html)?\/?$/.test(url.pathname)) { url.pathname = '/'; url.hash = '#work'; }
   if (url.pathname === '/contact') url.pathname = '/contact.html';
   if (url.pathname === '/resume') url.pathname = '/resume.html';
+  if (url.pathname === '/writing' || url.pathname === '/writing.html') url.pathname = '/writing/';
+  if (/^\/writing\/[a-z0-9-]+$/.test(url.pathname)) url.pathname += '/';
   return url;
 }
 
@@ -52,7 +56,7 @@ export function useNavigation() {
       const anchor = e.target instanceof Element ? e.target.closest('a[href]') : null;
       if (!anchor || anchor.hasAttribute('download') || (anchor.target && anchor.target !== '_self')) return;
       const raw = new URL(anchor.href, window.location.href);
-      if (raw.origin !== window.location.origin || !supported.has(raw.pathname)) return;
+      if (raw.origin !== window.location.origin || !isSupported(raw.pathname)) return;
       const url = canonicalURL(raw);
       e.preventDefault();
       save();
